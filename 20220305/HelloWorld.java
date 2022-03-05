@@ -12,6 +12,6 @@ public class HelloWorld{
 		for(int i=0;i<args.length;i++){
 			System.out.println(args[i]);
 		}
-		//System.out.println("hello word");
+		//System.out.println("hello world");
 	}
 }
