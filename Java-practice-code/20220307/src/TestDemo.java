@@ -3,6 +3,8 @@ public class TestDemo {
         //psvm[main]
         //sout[println]
         System.out.println("123");
+        System.out.println("helloworld");
+
 
     }
 }
