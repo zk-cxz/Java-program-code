@@ -1,6 +1,12 @@
 public class TestDemo {
     public static void main(String[] args) {
-        
+        //代码一:
+        double a=1.0;
+        double b=2.0;
+        System.out.println(a/b);
+        //代码二:
+        double c=1.1;
+        System.out.println(c*c);
     }
     public static void main3(String[] args) {
         //long定义变量的三种情况:
