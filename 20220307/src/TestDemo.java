@@ -1,5 +1,16 @@
 public class TestDemo {
     public static void main(String[] args) {
+        
+    }
+    public static void main5(String[] args) {
+        char c1='a';
+        char c2='1';
+        char c3='蔡';
+        System.out.println(c1);
+        System.out.println(c2);
+        System.out.println(c3);
+    }
+    public static void main4(String[] args) {
         //代码一:
         double a=1.0;
         double b=2.0;
