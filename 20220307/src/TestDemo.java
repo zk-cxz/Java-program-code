@@ -1,6 +1,9 @@
 public class TestDemo {
     public static void main(String[] args) {
-        
+        boolean b=true;
+        System.out.println(b);
+        boolean value=true;
+        System.out.println(value+1);
     }
     public static void main5(String[] args) {
         char c1='a';
