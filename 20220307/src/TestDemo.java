@@ -1,13 +1,22 @@
 public class TestDemo {
     public static void main(String[] args) {
+        
+    }
+    public static void main7(String[] args) {
         int a=10;
         long b=100L;
         b=a;   //编译成功，编译器会自动将a提升为long类型
         a=b;   //编译失败，long范围比int范围大，会有数据丢失，不安全
 
-        
+        float c=3.14F;
+        double d=5.12;
+        d=f;   //编译成功，b编译器会将f转换为double类型
+        f=d;   //编译失败，double范围比float范围大，会有数据丢失，不安全
+
+        byte e1=100;   //编译成功，100没有超过byte的范围，编译器隐式将100转换为byte
+        byte e2=257;   //编译失败，257超过了byte的数据范围，有数据丢失
     }
-    public static void main(String[] args) {
+    public static void main6(String[] args) {
         boolean b=true;
         System.out.println(b);
         boolean value=true;
