@@ -1,6 +1,15 @@
 public class TestDemo {
     public static void main(String[] args) {
-        
+        byte a=10;
+        byte b=20;
+        byte c=a+b;   //编译失败
+        int d=a+b;   //编译成功
+    }
+    public static void main10(String[] args) {
+        int a=10;
+        long b=20;
+        int c=a+b;   //编译失败
+        long d=a+b;   //编译成功
     }
     public static void main9(String[] args) {
         int a=10;
