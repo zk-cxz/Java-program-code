@@ -1,5 +1,13 @@
 public class TestDemo {
     public static void main(String[] args) {
+        int a=10;
+        long b=100L;
+        b=a;   //编译成功，编译器会自动将a提升为long类型
+        a=b;   //编译失败，long范围比int范围大，会有数据丢失，不安全
+
+        
+    }
+    public static void main(String[] args) {
         boolean b=true;
         System.out.println(b);
         boolean value=true;
