@@ -1,5 +1,15 @@
 public class TestDemo {
     public static void main(String[] args) {
+        
+    }
+    public static void main12(String[] args) {
+        String s1="hello";
+        String s2="world";
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s1+s2);   //s1+s2表示将s1和s2拼接起来
+    }
+    public static void main11(String[] args) {
         byte a=10;
         byte b=20;
         byte c=a+b;   //编译失败
