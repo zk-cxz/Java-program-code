@@ -1,6 +1,10 @@
 public class TestDemo {
     public static void main(String[] args) {
-        
+        int a=10;
+        int b=20;
+        System.out.println("a="+a+" b"+b);
+        System.out.println("a+b="+(a+b));   //计算在字符串后面要加括号
+        System.out.println(a+b+"=a+b");   //计算在字符串前面不用加括号
     }
     public static void main12(String[] args) {
         String s1="hello";
