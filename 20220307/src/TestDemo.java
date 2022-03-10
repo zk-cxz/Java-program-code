@@ -1,5 +1,8 @@
 public class TestDemo {
-    
+    public static void main(String[] args) {
+        String str="100";
+        int n=Integer.parseInt(str);
+    }
     public static void main14(String[] args) {
         int n=10;
         //方法一:
