@@ -2,6 +2,23 @@ public class TestDemo {
     public static void main(String[] args) {
         
     }
+    public static void main9(String[] args) {
+        int a=10;
+        boolean flag=true;
+        a=flag;   //编译失败，类型不兼容
+        flag=a;   //编译失败，类型不兼容
+    }
+    public static void main8(String[] args) {
+        int a=10;
+        long b=100L;
+        a=(int)b;
+
+        float c=3.14F;
+        double d=5.12;
+        f=(float)d;
+
+        byte e=(byte)257;
+    }
     public static void main7(String[] args) {
         int a=10;
         long b=100L;
