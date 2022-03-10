@@ -1,5 +1,13 @@
 public class TestDemo {
-    public static void main(String[] args) {
+    
+    public static void main14(String[] args) {
+        int n=10;
+        //方法一:
+        String str1=n+"";
+        //方法二:
+        String str2=String.valueof(n);
+    }
+    public static void main13(String[] args) {
         int a=10;
         int b=20;
         System.out.println("a="+a+" b"+b);
