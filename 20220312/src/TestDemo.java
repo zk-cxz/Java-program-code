@@ -9,6 +9,19 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
+    //求一个整数，在内存当中存储时，二进制1的个数。
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int count=0;
+        for (int i = 0; i < 32; i++) {
+            if(((num>>i)&1)==1){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
     /*编写代码模拟三次密码输入的场景。
     最多能输入三次密码，密码正确，提示“登录成功”,密码错误， 可以重新输 入，最多输入三次。
     三次均错，则提示退出程序*/
