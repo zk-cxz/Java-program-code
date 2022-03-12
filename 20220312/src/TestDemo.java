@@ -10,6 +10,10 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
+
+    }
+
+    public static void main4(String[] args) {
         Scanner sc=new Scanner(System.in);
         Random random=new Random();//在此处填值可以使这个随机数一致都是同一个数
         //int randNum=random.nextInt(100)+1;//1-100（方法一）
