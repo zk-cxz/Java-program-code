@@ -11,7 +11,20 @@ import java.util.Scanner;
 public class TestDemo {
     //求两个正整数的最大公约数
     public static void main(String[] args) {
-
+        Scanner sc=new Scanner(System.in);
+        int num1=sc.nextInt();
+        int num2=sc.nextInt();
+        int ret=num1>num2?num2:num1;
+        int num=0;
+        for (int i = 1; i < ret; i++) {
+            if(num1%i==0&&num2%i==0){
+                num=i;
+            }
+            if(i==ret-1){
+                break;
+            }
+        }
+        System.out.println(num);
     }
 
     //获取一个数二进制序列中所有的偶数位和奇数位， 分别输出二进制序列
