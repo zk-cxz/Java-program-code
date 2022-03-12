@@ -9,8 +9,29 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
+    /*编写代码模拟三次密码输入的场景。
+    最多能输入三次密码，密码正确，提示“登录成功”,密码错误， 可以重新输 入，最多输入三次。
+    三次均错，则提示退出程序*/
+    public static void main6(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str1="123456";
+        int count=3;
+        while(count!=0) {
+            String str2 = sc.nextLine();
+            if (str1.equals(str2)) {
+                System.out.println("登录成功");
+                break;
+            } else {
+                System.out.println("密码错误");
+                count--;
+            }
+        }if(count==0) {
+            System.out.println("三次密码均错，退出程序");
+        }
+    }
+
     //输出乘法口诀表
-    public static void main(String[] args) {
+    public static void main5(String[] args) {
         Scanner sc=new Scanner(System.in);
         int num=sc.nextInt();
         for (int i = 1; i <= num; i++) {
