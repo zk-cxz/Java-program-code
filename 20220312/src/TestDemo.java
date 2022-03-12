@@ -9,8 +9,27 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
-    //求一个整数，在内存当中存储时，二进制1的个数。
+    //求两个正整数的最大公约数
     public static void main(String[] args) {
+
+    }
+
+    //获取一个数二进制序列中所有的偶数位和奇数位， 分别输出二进制序列
+    public static void main8(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.print("偶数序列:");
+        for (int i = 31; i >= 0; i-=2) {
+            System.out.print((num>>i)&1);
+        }
+        System.out.print("\n奇数序列:");
+        for (int i = 30; i >= 0; i-=2) {
+            System.out.print((num>>i)&1);
+        }
+    }
+
+    //求一个整数，在内存当中存储时，二进制1的个数。
+    public static void main7(String[] args) {
         Scanner sc=new Scanner(System.in);
         int num=sc.nextInt();
         int count=0;
