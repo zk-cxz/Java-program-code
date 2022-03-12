@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -9,7 +10,22 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
-
+        Scanner sc=new Scanner(System.in);
+        Random random=new Random();//在此处填值可以使这个随机数一致都是同一个数
+        //int randNum=random.nextInt(100)+1;//1-100（方法一）
+        int randNum=(int)(Math.random()*100+1);//1-100（方法二）
+        while(true){
+            System.out.print("请输入:");
+            int num=sc.nextInt();
+            if(num<randNum){
+                System.out.println("猜小了");
+            }else if(num>randNum){
+                System.out.println("猜大了");
+            }else{
+                System.out.print("猜对了");
+                break;
+            }
+        }
     }
 
     public static void main3(String[] args) {
