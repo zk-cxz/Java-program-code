@@ -7,6 +7,12 @@
  */
 public class TestDemo {
     public static void main(String[] args) {
+        int a=10;
+        System.out.println(a>20 & a/0 == 0);   //err
+        System.out.println(a<20 | a/0 == 0);   //err
+    }
+
+    public static void main2(String[] args) {
         int a=4;
         if(3<a&&a<5){
             System.out.println(a);
