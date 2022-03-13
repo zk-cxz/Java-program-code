@@ -9,8 +9,28 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
-    //求两个正整数的最大公约数
     public static void main(String[] args) {
+
+    }
+
+    //求出0～999之间的所有“水仙花数”并输出。
+    public static void main10(String[] args) {
+        for (int i = 0; i < 1000; i++) {
+            int sum=0;
+            int j=i;
+            while(j!=0){
+                int n=j%10;
+                sum+=n*n*n;
+                j/=10;
+            }
+            if(sum==i){
+                System.out.print(i+" ");
+            }
+        }
+    }
+
+    //求两个正整数的最大公约数
+    public static void main9(String[] args) {
         Scanner sc=new Scanner(System.in);
         int num1=sc.nextInt();
         int num2=sc.nextInt();
