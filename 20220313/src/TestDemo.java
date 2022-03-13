@@ -8,8 +8,20 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //判断学生成绩等级
+    //邮箱验证
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+        String emailMatcher="[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+";
+        if(str.matches(emailMatcher)){
+            System.out.println("邮箱格式合法");
+        }else{
+            System.out.println("邮箱格式不合法");
+        }
+    }
+
+    //判断学生成绩等级
+    public static void main7(String[] args) {
         Scanner sc=new Scanner(System.in);
         String n=sc.nextLine();
         switch (n){
