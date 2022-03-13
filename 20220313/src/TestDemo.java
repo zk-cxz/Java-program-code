@@ -8,8 +8,23 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //计算9，99，999，...，9999999999的和
+    //统计输入正数个数
     public static void main(String[] args) {
+        int count=0;
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNextInt()){
+            int num=sc.nextInt();
+            if(num>0){
+                count++;
+            }else if(num==0){
+                break;
+            }
+        }
+        System.out.println(count);
+    }
+
+    //计算9，99，999，...，9999999999的和
+    public static void main9(String[] args) {
         long num=0;
         long sum=0;
         for (int i = 0; i < 10; i++) {
