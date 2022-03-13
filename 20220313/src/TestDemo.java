@@ -8,13 +8,30 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
+    //判断体重指数
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        double hight=sc.nextDouble();
+        double weight=sc.nextDouble();
+        double n=weight/(hight*hight);
+        if(n<18.5){
+            System.out.println("偏瘦");
+        }else if(n>=18.5&&n<20.9){
+            System.out.println("苗条");
+        }else if(n>=20.9&&n<=24.9){
+            System.out.println("适中");
+        }else{
+            System.out.println("偏胖");
+        }
+    }
+
     /*满100全额打9折；
     满500全额打8折；
     满2000全额打7折；
     满5000全额打6折；
     且商场有抹零活动，不足一元的部分不需要付款（类型强制转换）
     输入原来钱数，输出打折后的钱数*/
-    public static void main(String[] args) {
+    public static void main5(String[] args) {
         Scanner sc=new Scanner(System.in);
         int num1=sc.nextInt();
         double num2=0;
