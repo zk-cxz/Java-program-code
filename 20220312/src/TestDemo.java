@@ -9,8 +9,22 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
+    //给定一个数字，判定一个数字是否是素数
     public static void main(String[] args) {
-
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int j=1;
+        for (int i = 2; i < Math.sqrt(num); i++) {
+            if(num%i==0){
+                j=0;
+                break;
+            }
+        }
+        if(j==1){
+            System.out.println("是素数");
+        }else{
+            System.out.println("不是素数");
+        }
     }
 
     //根据输入的年龄, 来打印出当前年龄的人是少年(低于18), 青年(19-28), 中年(29-55), 老年(56以上)
