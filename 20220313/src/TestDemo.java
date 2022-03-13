@@ -8,8 +8,29 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //统计输入正数个数
+    //求最小公倍数
     public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        int m = console.nextInt();
+        int n = console.nextInt();
+        int result = getCM(m, n);
+        System.out.println(result);
+        console.close();
+    }
+
+    public static int getCM(int m, int n){
+        int max=(m>n?m:n);
+        int i=max;
+        while(true){
+            if(i%m==0&&i%n==0){
+                return i;
+            }
+            i++;
+        }
+    }
+
+    //统计输入正数个数
+    public static void main10(String[] args) {
         int count=0;
         Scanner sc=new Scanner(System.in);
         while(sc.hasNextInt()){
@@ -21,6 +42,7 @@ public class TestDemo {
             }
         }
         System.out.println(count);
+        sc.close();
     }
 
     //计算9，99，999，...，9999999999的和
@@ -44,6 +66,7 @@ public class TestDemo {
         }else{
             System.out.println("邮箱格式不合法");
         }
+        scanner.close();
     }
 
     //判断学生成绩等级
@@ -67,6 +90,7 @@ public class TestDemo {
                 System.out.println("未知等级");
                 break;
         }
+        sc.close();
     }
 
     //判断体重指数
@@ -84,6 +108,7 @@ public class TestDemo {
         }else{
             System.out.println("偏胖");
         }
+        sc.close();
     }
 
     /*满100全额打9折；
@@ -108,6 +133,7 @@ public class TestDemo {
             num2=num1*0.6;
         }
         System.out.println((int)num2);
+        sc.close();
     }
 
     //不使用第三变量交换变量值
@@ -119,6 +145,7 @@ public class TestDemo {
         num2^=num1;
         num1^=num2;
         System.out.println(num1+" "+num2);
+        sc.close();
     }
 
     //输入一个浮点数，输出其四舍五入后的整数
