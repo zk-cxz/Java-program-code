@@ -9,12 +9,28 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
-    //给定一个数字，判定一个数字是否是素数
+    //打印 1 - 100 之间所有的素数
     public static void main(String[] args) {
+        for (int i = 2; i <= 100; i++) {
+            int k=1;
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if(i%j==0){
+                    k=0;
+                    break;
+                }
+            }
+            if(k==1){
+                System.out.print(i+" ");
+            }
+        }
+    }
+
+    //给定一个数字，判定一个数字是否是素数
+    public static void main12(String[] args) {
         Scanner sc=new Scanner(System.in);
         int num=sc.nextInt();
         int j=1;
-        for (int i = 2; i < Math.sqrt(num); i++) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
             if(num%i==0){
                 j=0;
                 break;
