@@ -8,8 +8,25 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //求最小公倍数
+    //小球走过路程计算
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        float hight=sc.nextFloat();
+        int n=sc.nextInt();
+        float s=hight;
+        while(n!=0){
+            if(n!=1){
+                s+=hight;
+            }
+            hight/=2;
+            n--;
+        }
+        System.out.println(String.format("%.3f",hight)+" "+String.format("%.3f",s));
+        sc.close();
+    }
+
+    //求最小公倍数
+    public static void main11(String[] args) {
         Scanner console = new Scanner(System.in);
         int m = console.nextInt();
         int n = console.nextInt();
