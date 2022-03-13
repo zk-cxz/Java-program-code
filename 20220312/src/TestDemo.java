@@ -9,8 +9,17 @@ import java.util.Scanner;
  * Time: 22:01
  */
 public class TestDemo {
-    //打印 1 - 100 之间所有的素数
+    //输出 1000 - 2000 之间所有的闰年
     public static void main(String[] args) {
+        for (int i = 1000; i <=2000 ; i++) {
+            if((i%4==0&&i%100!=0)||(i%400==0)){
+                System.out.print(i+" ");
+            }
+        }
+    }
+
+    //打印 1 - 100 之间所有的素数
+    public static void main13(String[] args) {
         for (int i = 2; i <= 100; i++) {
             int k=1;
             for (int j = 2; j <= Math.sqrt(i); j++) {
