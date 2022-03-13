@@ -8,8 +8,18 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //输出两个整数的和，差，积，商，模
+    //输入一个浮点数，输出其四舍五入后的整数
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        double num=sc.nextDouble();
+        if(num-(int)num>=0.5){
+            num+=1;
+        }
+        System.out.println((int)num);
+    }
+
+    //输出两个整数的和，差，积，商，模
+    public static void main2(String[] args) {
         Scanner sc=new Scanner(System.in);
         int num1=sc.nextInt();
         int num2=sc.nextInt();
