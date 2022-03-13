@@ -8,8 +8,19 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //邮箱验证
+    //计算9，99，999，...，9999999999的和
     public static void main(String[] args) {
+        long num=0;
+        long sum=0;
+        for (int i = 0; i < 10; i++) {
+            num=num*10+9;
+            sum+=num;
+        }
+        System.out.println(sum);
+    }
+    
+    //邮箱验证
+    public static void main8(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.next();
         String emailMatcher="[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+";
