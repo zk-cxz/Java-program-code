@@ -13,6 +13,21 @@ public class TestDemo {
 
     }
 
+    //根据输入的年龄, 来打印出当前年龄的人是少年(低于18), 青年(19-28), 中年(29-55), 老年(56以上)
+    public static void main11(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int year=sc.nextInt();
+        if(year<=18){
+            System.out.println("少年");
+        }else if(year>=19&&year<=28){
+            System.out.println("青年");
+        }else if(year>=29&&year<=55){
+            System.out.println("中年");
+        }else{
+            System.out.println("老年");
+        }
+    }
+
     //求出0～999之间的所有“水仙花数”并输出。
     public static void main10(String[] args) {
         for (int i = 0; i < 1000; i++) {
