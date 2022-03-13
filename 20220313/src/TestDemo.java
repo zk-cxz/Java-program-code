@@ -8,8 +8,31 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //判断体重指数
+    //判断学生成绩等级
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String n=sc.nextLine();
+        switch (n){
+            case "A":
+                System.out.println("优秀");
+                break;
+            case "B":
+                System.out.println("良好");
+                break;
+            case "C":
+                System.out.println("及格");
+                break;
+            case "D":
+                System.out.println("不及格");
+                break;
+            default:
+                System.out.println("未知等级");
+                break;
+        }
+    }
+
+    //判断体重指数
+    public static void main6(String[] args) {
         Scanner sc=new Scanner(System.in);
         double hight=sc.nextDouble();
         double weight=sc.nextDouble();
