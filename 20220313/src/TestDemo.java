@@ -8,12 +8,30 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //判断质数
+    //计算整数位数
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int count=0;
+        if(num<=0){
+            System.out.println(num);
+        }else{
+            while(num!=0){
+                count++;
+                num/=10;
+            }
+            System.out.println(count);
+        }
+        sc.close();
+    }
+
+    //判断质数
+    public static void main14(String[] args) {
         TestDemo main = new TestDemo();
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();
         System.out.println(main.isPrimeNumber(number));
+        scan.close();
     }
 
     public Boolean isPrimeNumber(int number) {
@@ -39,6 +57,7 @@ public class TestDemo {
             count++;
         }
         System.out.println(String.format("%.2f",sum/count));
+        sc.close();
     }
 
     //小球走过路程计算
