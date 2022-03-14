@@ -8,8 +8,24 @@ import java.util.Scanner;
  * Time: 10:45
  */
 public class TestDemo {
-    //小球走过路程计算
+    //求平均数
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        double sum=0;
+        int count=0;
+        while(sc.hasNextInt()){
+            int num=sc.nextInt();
+            if(num<0){
+                break;
+            }
+            sum+=num;
+            count++;
+        }
+        System.out.println(String.format("%.2f",sum/count));
+    }
+
+    //小球走过路程计算
+    public static void main12(String[] args) {
         Scanner sc=new Scanner(System.in);
         float hight=sc.nextFloat();
         int n=sc.nextInt();
