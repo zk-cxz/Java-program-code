@@ -11,8 +11,16 @@ public class TestDemo {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        eat2(n);
+        eat3(n);
         sc.close();
+    }
+
+    public static void eat3(int n) {
+        System.out.println("第一分钟");
+        System.out.println("第二分钟");
+        System.out.println("第三分钟");
+        System.out.println("第四分钟");
+        System.out.println("第五分钟");
     }
 
     public static void eat2(int n) {
