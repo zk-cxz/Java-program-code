@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -8,8 +9,28 @@ import java.util.Scanner;
  * Time: 16:05
  */
 public class TestDemo {
-    //随机的输入6个整数，输出数组中的最大值，最小值(最大值最小值之间用空格隔开
+    //数组倒转
     public static void main(String[] args) {
+        int[] arr = new int[6];
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        System.out.println(Arrays.toString(arr));
+        int j=0;
+        int k=arr.length-1;
+        while(j<k){
+            int ret=arr[j];
+            arr[j]=arr[k];
+            arr[k]=ret;
+            j++;
+            k--;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    //随机的输入6个整数，输出数组中的最大值，最小值(最大值最小值之间用空格隔开
+    public static void main5(String[] args) {
         int[] array = new int[6];
         int max=0;
         int min=1000;
