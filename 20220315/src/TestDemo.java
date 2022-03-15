@@ -9,7 +9,16 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
-        fun2(5);
+        fun3(5);
+    }
+
+    public static void fun3(int n) {
+        int[][] array=new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                array[i][j]=10;
+            }
+        }
     }
 
     public static void fun2(int n) {
