@@ -9,8 +9,23 @@ import java.util.Scanner;
  * Time: 16:05
  */
 public class TestDemo {
-    // 二维数组求和
     public static void main(String[] args) {
+
+    }
+
+    //取近似值
+    public static void main8(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        double num=sc.nextDouble();
+        if(num-(int)num>=0.5){
+            System.out.println((int)num+1);
+        }else{
+            System.out.println((int)num);
+        }
+    }
+
+    // 二维数组求和
+    public static void main7(String[] args) {
         int[][]  arr = {{11,33,55},{22,44,66,88},{131,214,315,146},{928,827,726,625},{424,525}};
         int sum=add(arr);
         System.out.println(sum);
