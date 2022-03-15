@@ -9,8 +9,25 @@ import java.util.Scanner;
  * Time: 16:05
  */
 public class TestDemo {
-    //数组倒转
+    // 二维数组求和
     public static void main(String[] args) {
+        int[][]  arr = {{11,33,55},{22,44,66,88},{131,214,315,146},{928,827,726,625},{424,525}};
+        int sum=add(arr);
+        System.out.println(sum);
+    }
+
+    public static int add(int[][] arr) {
+        int sum=0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                sum+=arr[i][j];
+            }
+        }
+        return sum;
+    }
+
+    //数组倒转
+    public static void main6(String[] args) {
         int[] arr = new int[6];
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < arr.length; i++) {
