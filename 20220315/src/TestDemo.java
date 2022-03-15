@@ -8,7 +8,25 @@ import java.util.Scanner;
  * Time: 16:05
  */
 public class TestDemo {
+    //随机的输入6个整数，输出数组中的最大值，最小值(最大值最小值之间用空格隔开
     public static void main(String[] args) {
+        int[] array = new int[6];
+        int max=0;
+        int min=1000;
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i <array.length ; i++) {
+            array[i]=scanner.nextInt();
+            if(array[i]>max){
+                max=array[i];
+            }
+            if(array[i]<min){
+                min=array[i];
+            }
+        }
+        System.out.println(max+" "+min);
+    }
+
+    public static void main4(String[] args) {
         fun4(5);
     }
 
