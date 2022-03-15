@@ -11,8 +11,17 @@ public class TestDemo {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        eat3(n);
+        eat4(n);
         sc.close();
+    }
+
+    public static void eat4(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.println("吃蛋糕中");
+            }
+            System.out.println("吃一个蛋糕");
+        }
     }
 
     public static void eat3(int n) {
