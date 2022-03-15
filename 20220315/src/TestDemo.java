@@ -9,7 +9,13 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
-        fun1(5);
+        fun2(5);
+    }
+
+    public static void fun2(int n) {
+        int[] array=new int[n];
+        array[5]=10;
+        System.out.println(array);
     }
 
     public static void fun1(int n){
