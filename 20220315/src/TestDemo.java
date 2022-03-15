@@ -9,6 +9,15 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
+        fun1(5);
+    }
+
+    public static void fun1(int n){
+        int a=10;
+        System.out.println(a);
+    }
+
+    public static void main3(String[] args) {
         int[] array=new int[]{3,1,2,5,4,9,7,2};
         int[] brrby=new int[10];
         for (int i = 0; i < array.length; i++) {
