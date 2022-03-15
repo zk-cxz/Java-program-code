@@ -9,7 +9,14 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
-        fun3(5);
+        fun4(5);
+    }
+
+    public static void fun4(int n) {
+        if(n<=1){
+            return;
+        }
+        fun4(n-1);
     }
 
     public static void fun3(int n) {
