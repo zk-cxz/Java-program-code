@@ -9,6 +9,30 @@ import java.util.Scanner;
  */
 public class TestDemo {
     public static void main(String[] args) {
+        int[] array=new int[]{3,1,2,5,4,9,7,2};
+        int[] brrby=new int[10];
+        for (int i = 0; i < array.length; i++) {
+            brrby[array[i]]+=1;
+            if(brrby[array[i]]==2){
+                System.out.println(brrby[array[i]]);
+                break;
+            }
+        }
+    }
+
+    public static void main2(String[] args) {
+        int[] array=new int[]{3,1,2,5,4,9,7,2};
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if(array[j]==array[i]){
+                    System.out.println(array[j]);
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void main1(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         eat4(n);
