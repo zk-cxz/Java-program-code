@@ -8,6 +8,17 @@ import java.util.Scanner;
  * Time: 16:13
  */
 public class TestDemo {
+    public static int add(int num){
+        if(num<=1){
+            return num;
+        }
+        return num+add(num-1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(add(10));
+    }
+
     public static void print(int num){
         if(num<=9){
             System.out.print(num+" ");
@@ -17,7 +28,7 @@ public class TestDemo {
         System.out.print(num%10+" ");
     }
 
-    public static void main(String[] args) {
+    public static void main8(String[] args) {
         Scanner scanner=new Scanner(System.in);
         int n=scanner.nextInt();
         print(n);
@@ -109,11 +120,11 @@ public class TestDemo {
         return (fib(num-1)+fib(num-2));
     }
 
-    public static int add(int a,int b){
+    public static int add2(int a,int b){
         return a+b;
     }
 
-    public static double add(double a,double b){
+    public static double add1(double a,double b){
         return a+b;
     }
 
@@ -122,8 +133,8 @@ public class TestDemo {
         int b=20;
         double c=10.6;
         double d=22.2;
-        int ret1=add(a,b);
-        double ret2=add(c,d);
+        int ret1=add2(a,b);
+        double ret2=add1(c,d);
         System.out.println(ret1);
         System.out.println(ret2);
     }
