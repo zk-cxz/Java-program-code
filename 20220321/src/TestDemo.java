@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -6,6 +8,20 @@
  * Time: 16:13
  */
 public class TestDemo {
+    public static int fib(int n){
+        if(n==1||n==2){
+            return 1;
+        }
+        return fib(n-1)+fib(n-2);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int ret=fib(n);
+        System.out.println(ret);
+    }
+
     public static int compare(int x,int y){
         return (x>y?x:y);
     }
@@ -28,7 +44,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main5(String[] args) {
         int a=2;
         int b=2;
         System.out.println(compare(a,b));
@@ -42,7 +58,7 @@ public class TestDemo {
         System.out.println(fib(40));
     }
 
-    public static int fib(int num){
+    public static int fib2(int num){
         if(num==1||num==2){
             return 1;
         }
