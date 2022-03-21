@@ -6,7 +6,39 @@
  * Time: 16:13
  */
 public class TestDemo {
+    public static int compare(int x,int y){
+        return (x>y?x:y);
+    }
+
+    public static double compare(double x,double y){
+        return (x>y?x:y);
+    }
+
+    public static void compare(int x,double y,double z){
+        double sum=x+y+z;
+        double tmp=compare(y,z);
+        if(x>=tmp){
+            System.out.println(x+">"+tmp+">"+(sum-x-tmp));
+        }else{
+            if(sum-x-tmp>x) {
+                System.out.println(tmp+">"+(sum-x-tmp)+">"+x);
+            }else{
+                System.out.println(tmp+">"+x+">"+(sum-x-tmp));
+            }
+        }
+    }
+
     public static void main(String[] args) {
+        int a=2;
+        int b=2;
+        System.out.println(compare(a,b));
+        double c=1.6;
+        double d=2.6;
+        System.out.println(compare(c,d));
+        compare(a,c,d);
+    }
+
+    public static void main4(String[] args) {
         System.out.println(fib(40));
     }
 
