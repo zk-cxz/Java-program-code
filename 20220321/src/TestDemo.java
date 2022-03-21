@@ -8,6 +8,21 @@ import java.util.Scanner;
  * Time: 16:13
  */
 public class TestDemo {
+    public static void print(int num){
+        if(num<=9){
+            System.out.print(num+" ");
+            return;
+        }
+        print(num/10);
+        System.out.print(num%10+" ");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        print(n);
+    }
+
     public static int sum(int num){
         if(num<=9){
             return num;
@@ -15,7 +30,7 @@ public class TestDemo {
         return num%10+sum(num/10);
     }
 
-    public static void main(String[] args) {
+    public static void main7(String[] args) {
         Scanner scanner=new Scanner(System.in);
         int n=scanner.nextInt();
         int ret=sum(n);
