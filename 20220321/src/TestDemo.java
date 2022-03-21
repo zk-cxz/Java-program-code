@@ -6,6 +6,32 @@
  * Time: 16:13
  */
 public class TestDemo {
+    public static void main(String[] args) {
+        System.out.println(fib(40));
+    }
+
+    public static int fib(int num){
+        if(num==1||num==2){
+            return 1;
+        }
+        int n1=1;
+        int n2=1;
+        int n3=0;
+        for (int i = 3; i <= num; i++) {
+            n3=n1+n2;
+            n1=n2;
+            n2=n3;
+        }
+        return n3;
+    }
+
+    public static int fib1(int num){
+        if(num==1||num==2){
+            return 1;
+        }
+        return (fib(num-1)+fib(num-2));
+    }
+
     public static int add(int a,int b){
         return a+b;
     }
@@ -14,7 +40,7 @@ public class TestDemo {
         return a+b;
     }
 
-    public static void main(String[] args) {
+    public static void main3(String[] args) {
         int a=10;
         int b=20;
         double c=10.6;
