@@ -6,6 +6,10 @@
  * Time: 10:31
  */
 public class TestDemo {
+    public static void main(String[] args) {
+        
+    }
+
     public static String myToString(int[] arr){
         String n="[";
         for (int i = 0; i < arr.length; i++) {
@@ -18,7 +22,7 @@ public class TestDemo {
         return n;
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         int[] arr={1,2,3,4};
         String ret=myToString(arr);
         System.out.println(ret);
