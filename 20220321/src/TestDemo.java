@@ -8,6 +8,20 @@ import java.util.Scanner;
  * Time: 16:13
  */
 public class TestDemo {
+    public static int mul(int num){
+        if(num<=1){
+            return num;
+        }
+        return num*mul(num-1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int ret=mul(n);
+        System.out.println(ret);
+    }
+
     public static int add(int num){
         if(num<=1){
             return num;
@@ -15,7 +29,7 @@ public class TestDemo {
         return num+add(num-1);
     }
 
-    public static void main(String[] args) {
+    public static void main10(String[] args) {
         System.out.println(add(10));
     }
 
