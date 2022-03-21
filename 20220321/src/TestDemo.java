@@ -6,7 +6,22 @@
  * Time: 16:13
  */
 public class TestDemo {
+    public static int add(int a,int b){
+        return a+b;
+    }
+
+    public static double add(double a,double b){
+        return a+b;
+    }
+
     public static void main(String[] args) {
+        int a=10;
+        int b=20;
+        int ret=add(a,b);
+        System.out.println(ret);
+    }
+
+    public static void main2(String[] args) {
         int[] array={10,20};
         System.out.println("交换前:array[0]="+array[0]+" array[1]="+array[1]);
         swap(array);
