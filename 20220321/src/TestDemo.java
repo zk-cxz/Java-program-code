@@ -17,8 +17,12 @@ public class TestDemo {
     public static void main(String[] args) {
         int a=10;
         int b=20;
-        int ret=add(a,b);
-        System.out.println(ret);
+        double c=10.6;
+        double d=22.2;
+        int ret1=add(a,b);
+        double ret2=add(c,d);
+        System.out.println(ret1);
+        System.out.println(ret2);
     }
 
     public static void main2(String[] args) {
