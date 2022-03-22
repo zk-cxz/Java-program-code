@@ -7,6 +7,25 @@
  */
 public class TestDemo {
     /**
+     * 求数组所有元素的和
+     * @param arr
+     * @return
+     */
+    public static int sum(int[] arr){
+        int sum=0;
+        for (int i = 0; i < arr.length; i++) {
+            sum+=arr[i];
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int[] array={1,2,3,4,5,6};
+        int ret=sum(array);
+        System.out.println(ret);
+    }
+
+    /**
      * 求数组平均数
      * @param arr
      * @return
@@ -19,7 +38,7 @@ public class TestDemo {
         return sum/arr.length;
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         int[] array={1,2,3,4,5,6};
         double ret=avg(array);
         System.out.println(ret);
