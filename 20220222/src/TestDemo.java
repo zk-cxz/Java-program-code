@@ -9,6 +9,26 @@ import java.util.Arrays;
  */
 public class TestDemo {
     /**
+     * 模拟实现copyOf
+     * @param arr
+     * @param len
+     * @return
+     */
+    public static int[] copyOf(int[] arr,int len){
+        int[] str=new int[len];
+        for (int i = 0; i < arr.length; i++) {
+            str[i]=arr[i];
+        }
+        return str;
+    }
+
+    public static void main(String[] args) {
+        int[] array={1,2,3,4,5};
+        int[] copy= copyOf(array,array.length);
+        System.out.println(Arrays.toString(copy));
+    }
+
+    /**
      * 创建数组并赋值
      * @param arr
      */
@@ -18,7 +38,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main5(String[] args) {
         int[] array=new int[100];
         charge(array);
         System.out.println(Arrays.toString(array));
