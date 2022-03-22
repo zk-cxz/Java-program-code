@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -6,6 +8,22 @@
  * Time: 10:23
  */
 public class TestDemo {
+    /**
+     * 改变原有数组的值
+     * @param arr
+     */
+    public static void transform(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]*=2;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array={1,2,3};
+        transform(array);
+        System.out.println(Arrays.toString(array));
+    }
+
     /**
      * 求数组所有元素的和
      * @param arr
@@ -19,7 +37,7 @@ public class TestDemo {
         return sum;
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         int[] array={1,2,3,4,5,6};
         int ret=sum(array);
         System.out.println(ret);
