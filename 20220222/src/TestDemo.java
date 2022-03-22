@@ -9,6 +9,21 @@ import java.util.Arrays;
  */
 public class TestDemo {
     /**
+     * 打印数组
+     * @param arr
+     */
+    public static void printArray(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+" ");
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array={1,2,3,4,5};
+        printArray(array);
+    }
+
+    /**
      * 改变原有数组的值
      * @param arr
      */
@@ -18,7 +33,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main3(String[] args) {
         int[] array={1,2,3};
         transform(array);
         System.out.println(Arrays.toString(array));
