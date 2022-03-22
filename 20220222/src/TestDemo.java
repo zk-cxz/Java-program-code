@@ -9,6 +9,22 @@ import java.util.Arrays;
  */
 public class TestDemo {
     /**
+     * 创建数组并赋值
+     * @param arr
+     */
+    public static void charge(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=i+1;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array=new int[100];
+        charge(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    /**
      * 打印数组
      * @param arr
      */
@@ -18,7 +34,7 @@ public class TestDemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
         int[] array={1,2,3,4,5};
         printArray(array);
     }
