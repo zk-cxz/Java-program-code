@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -6,6 +8,18 @@
  * Time: 17:39
  */
 public class TestDemo {
+    public static void main(String[] args) {
+        int[] array={2,8,4,7};
+        int[] brray=Arrays.copyOf(array,array.length);
+        Arrays.sort(brray);
+        boolean ret=Arrays.equals(array,brray);
+        if(ret==true){
+            System.out.println("数组有序递增");
+        }else{
+            System.out.println("数组无序");
+        }
+    }
+
     public static boolean sort(int[] array){
         for (int i = 0; i < array.length-1; i++) {
             if(array[i]>array[i+1]){
@@ -15,7 +29,7 @@ public class TestDemo {
         return true;
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         int[] array={2,8,4,7};
         boolean ret=sort(array);
         if(ret==true){
