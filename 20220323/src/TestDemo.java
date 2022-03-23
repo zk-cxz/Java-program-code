@@ -8,7 +8,31 @@ import java.util.Arrays;
  * Time: 17:39
  */
 public class TestDemo {
-    public static void main(String[] args) {
+    public static void bubbleSort(int[] array){
+        for (int i = 0; i < array.length-1; i++) {
+            boolean n=false;
+            for (int j = 0; j < array.length-1-i; j++) {
+                if(array[j]>array[j+1]){
+                    int tmp=array[j];
+                    array[j]=array[j+1];
+                    array[j+1]=tmp;
+                    n=true;
+                }
+            }
+            if(n==false){
+                break;
+            }
+        }
+    }
+
+    public static void main4(String[] args) {
+        int[] array={9,8,7,6,5,4,3,2,1};
+        bubbleSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    //判断数组是否有序
+    public static void main3(String[] args) {
         int[] array={2,8,4,7};
         int[] brray=Arrays.copyOf(array,array.length);
         Arrays.sort(brray);
@@ -20,6 +44,7 @@ public class TestDemo {
         }
     }
 
+    //判断数组是否有序
     public static boolean sort(int[] array){
         for (int i = 0; i < array.length-1; i++) {
             if(array[i]>array[i+1]){
