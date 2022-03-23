@@ -8,6 +8,16 @@ import java.util.Arrays;
  * Time: 17:39
  */
 public class TestDemo {
+    //打印只出现一次的数字
+    public static void main5(String[] args) {
+        int[] array={4,1,2,1,2};
+        int n=array[0];
+        for (int i = 1; i < array.length; i++) {
+            n^=array[i];
+        }
+        System.out.println(n);
+    }
+
     public static void bubbleSort(int[] array){
         for (int i = 0; i < array.length-1; i++) {
             boolean n=false;
@@ -25,6 +35,7 @@ public class TestDemo {
         }
     }
 
+    //实现冒泡排序
     public static void main4(String[] args) {
         int[] array={9,8,7,6,5,4,3,2,1};
         bubbleSort(array);
