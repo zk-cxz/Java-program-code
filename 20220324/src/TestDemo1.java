@@ -13,6 +13,18 @@ public class TestDemo1 {
 
     }
 
+    public static void main3(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int sum=2;
+        int num=2;
+        for (int i = 1; i < n; i++) {
+            num+=3;
+            sum+=num;
+        }
+        System.out.println(sum);
+    }
+
     //输入一个正整数m（m≤100），将m的立方写成m个连续奇数之和的形式输出。
     public static void main2(String[] args) {
         Scanner scanner=new Scanner(System.in);
