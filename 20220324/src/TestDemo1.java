@@ -9,7 +9,37 @@ import java.util.Scanner;
  * Time: 21:06
  */
 public class TestDemo1 {
+    //旋转数组的最小数字
+    public static int minNumberInRotateArray(int [] array) {
+        if(array.length==0){
+            return 0;
+        }
+        int left=0;
+        int right=array.length-1;
+        int mid=0;
+        if(array[right]>array[left]){
+            return array[0];
+        }
+        while(left<right){
+            mid=left+(right-left)/2;
+            if(array[mid]>array[right]){
+                left=mid+1;
+            }else if(array[mid]==array[right]){
+                right--;
+            }else{
+                right=mid;
+            }
+        }
+        return array[left];
+    }
+
     public static void main(String[] args) {
+        int[] array={3,4,5,1,2};
+        int ret=minNumberInRotateArray(array);
+        System.out.println(ret);
+    }
+
+    public static void main4(String[] args) {
         Scanner scanner=new Scanner(System.in);
         int n=scanner.nextInt();
         int count1=0;
