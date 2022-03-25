@@ -10,7 +10,29 @@ import java.util.Scanner;
  */
 public class TestDemo1 {
     public static void main(String[] args) {
-
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
+        int count1=0;
+        int count2=0;
+        int sum=0;
+        while(scanner.hasNextInt()){
+            int m=scanner.nextInt();
+            if(m<0){
+                count1++;
+            } else if(m>0){
+                sum += m;
+                count2++;
+            }
+            n--;
+            if(n==0){
+                break;
+            }
+        }
+        if(sum==0){
+            System.out.print(count1+" "+sum*1.0);
+        }else {
+            System.out.printf("%d %.1f",count1,(sum * 1.0 / count2));
+        }
     }
 
     public static void main3(String[] args) {
