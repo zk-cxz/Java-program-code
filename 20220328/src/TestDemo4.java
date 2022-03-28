@@ -10,6 +10,15 @@ class Person{
     public int age;
     public String sex;
 
+    public Person(){
+        this(15);
+        System.out.println();
+    }
+
+    public Person(int age){
+        this.age=age;
+    }
+
     public void setPerson(Person this, String name, int age, String sex) {
         this.name = name;
         this.age = age;
@@ -18,6 +27,7 @@ class Person{
 
     public void sleep(Person this){
         System.out.println(name+"正在睡觉");
+        this.eat();
     }
 
     public void eat(Person this){
