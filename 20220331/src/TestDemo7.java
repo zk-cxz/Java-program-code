@@ -5,12 +5,12 @@
  * Date: 2022-03-31
  * Time: 17:00
  */
-class Dog{
+class Dog1{
     public String name;
     public int age;
     public String sex;
 
-    public Dog(String name, int age, String sex) {
+    public Dog1(String name, int age, String sex) {
         this.name = name;
         this.age = age;
         this.sex = sex;
@@ -39,7 +39,7 @@ class Dog{
 
 public class TestDemo7 {
     public static void main(String[] args) {
-        Dog dog1=new Dog("小黑",6,"男");
+        Dog1 dog1=new Dog1("小黑",6,"男");
         /*dog1.setName("小黑");
         dog1.setAge(6);
         dog1.setSex("男");*/
