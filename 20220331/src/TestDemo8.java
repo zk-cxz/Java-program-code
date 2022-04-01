@@ -14,6 +14,11 @@ class Dog{
         this.name = name;
     }
 
+    public Dog(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public void eat(){
         System.out.println(name+"正在吃饭");
     }
