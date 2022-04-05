@@ -11,7 +11,7 @@ class Dog{
     public String sex="男";
 
     public Dog(){
-        System.out.println("这是一个不带参数的构造方法");
+        this("小黄",4,"男");
     }
 
     public Dog(String name, int age, String sex) {
@@ -34,7 +34,7 @@ class Dog{
 public class TestDemo1 {
     public static void main(String[] args) {
         Dog dog = new Dog();
-        dog.setName("小黄");
+        //dog.setName("小黄");
         //dog.name="小黄";
         dog.sleep();
     }
