@@ -14,6 +14,18 @@ class Dog{
         System.out.println("这是一个不带参数的构造方法");
     }
 
+    public Dog(String name, int age, String sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    public void setDog(String n, int a, String s) {
+        name = n;
+        age = a;
+        sex = s;
+    }
+
     public void sleep(){
         System.out.println(name+"正在睡觉");
     }
@@ -22,7 +34,8 @@ class Dog{
 public class TestDemo1 {
     public static void main(String[] args) {
         Dog dog = new Dog();
-        dog.name="小黄";
+        dog.setName("小黄");
+        //dog.name="小黄";
         dog.sleep();
     }
 }
