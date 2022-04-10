@@ -12,8 +12,11 @@ class Outclass{
         int b;
 
         public void func(){
-            a=100;
-
+            //a=100;
+            b=300;
+            System.out.println(b);
+            Outclass.this.b=800;
+            System.out.println(Outclass.this.b);
         }
     }
 }
@@ -26,6 +29,6 @@ public class TestDemo1 {
         //写法二：
         Outclass.Innerclass innerclass=new Outclass().new Innerclass();
         innerclass.func();
-        System.out.println(Outclass.a);
+        //System.out.println(Outclass.a);
     }
 }
