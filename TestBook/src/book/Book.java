@@ -10,7 +10,7 @@ package book;
 public class Book {
     private String name;   //书名
     private String author;   //作者
-    private int price;   //价格
+    private double price;   //价格
     private String type;   //类型
     private boolean isBorrowed;   //是否被借出
 
