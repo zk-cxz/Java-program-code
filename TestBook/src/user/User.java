@@ -7,5 +7,12 @@ package user;
  * Date: 2022-04-13
  * Time: 20:23
  */
-public class User {
+public abstract class User {
+    protected String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public abstract int menu();
 }

@@ -6,12 +6,13 @@ import book.BookList;
  * Created with IntelliJ IDEA.
  * Description:
  * User: a
- * Date: 2022-04-12
- * Time: 18:42
+ * Date: 2022-04-13
+ * Time: 23:22
  */
-public class DelOperation implements IOperation {
+public class ExitOperation implements IOperation {
+    //销毁或者使用数据后退出
     @Override
     public void work(BookList bookList){
-        System.out.println("删除图书!");
+        System.out.println("推出系统!");
     }
 }

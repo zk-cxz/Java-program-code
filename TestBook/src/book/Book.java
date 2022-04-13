@@ -2,7 +2,7 @@ package book;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description:书类
  * User: a
  * Date: 2022-04-12
  * Time: 18:35
@@ -14,7 +14,7 @@ public class Book {
     private String type;   //类型
     private boolean isBorrowed;   //是否被借出
 
-    public Book(String name, String author, int price, String type) {
+    public Book(String name, String author, double price, String type) {
         this.name = name;
         this.author = author;
         this.price = price;
@@ -37,11 +37,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

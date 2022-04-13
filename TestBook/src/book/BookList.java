@@ -2,7 +2,7 @@ package book;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description:书架类
  * User: a
  * Date: 2022-04-12
  * Time: 18:35
@@ -12,9 +12,9 @@ public class BookList {
     private int usedSize;   //数组中放了几本书
 
     public BookList() {
-        books[0] = new Book("三国演义","罗贯中",90,"小说");
-        books[1] = new Book("西游记","吴承恩",78,"小说");
-        books[2] = new Book("红楼梦","曹雪芹",89,"小说");
+        books[0] = new Book("三国演义","罗贯中",90.00,"小说");
+        books[1] = new Book("西游记","吴承恩",78.80,"小说");
+        books[2] = new Book("红楼梦","曹雪芹",89.50,"小说");
         this.usedSize = 3;
     }
 

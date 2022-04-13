@@ -1,5 +1,7 @@
 package operation;
 
+import book.BookList;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -7,5 +9,6 @@ package operation;
  * Date: 2022-04-12
  * Time: 18:42
  */
-public class IOperation {
+public interface IOperation {
+    void work(BookList bookList);
 }
