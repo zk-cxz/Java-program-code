@@ -15,7 +15,7 @@ public class NormalUser extends User {
     }
 
     public int menu(){
-        System.out.println("==========普通用户菜单========");
+        System.out.println("=======普通用户菜单========");
         System.out.println("hello "+this.name+" 欢迎来到图书管理系统");
         System.out.println("1.查找图书");
         System.out.println("2.借阅图书");

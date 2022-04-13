@@ -16,7 +16,7 @@ public class AdminUser extends User {
     }
 
     public int menu(){
-        System.out.println("==========管理员菜单========");
+        System.out.println("=======管理员用户菜单========");
         System.out.println("hello "+this.name+" 欢迎来到图书管理系统");
         System.out.println("1.查找图书");
         System.out.println("2.新增图书");

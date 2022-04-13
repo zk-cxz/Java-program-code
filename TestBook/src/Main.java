@@ -20,7 +20,15 @@ public class Main {
             System.out.println("请输入你的身份:> 1.管理员  0.普通用户");
             int choice=scanner.nextInt();
             if(choice==1){
-                return new AdminUser(name);
+                System.out.println("请输入密码:>");
+                Scanner sc=new Scanner(System.in);
+                String nums=sc.nextLine();
+                if(nums.equals("123456")) {
+                    System.out.println("登录成功！");
+                    return new AdminUser(name);
+                }else{
+                    System.out.println("登录失败，输入密码错误!");
+                }
             }else if(choice==0){
                 return new NormalUser(name);
             }else{
