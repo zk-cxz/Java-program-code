@@ -1,3 +1,4 @@
+import book.BookList;
 import user.AdminUser;
 import user.NormalUser;
 import user.User;
@@ -38,9 +39,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        BookList bookList=new BookList();   //准备好书
         User user=login();   //向上转型
         while(true) {
             int choice=user.menu();
+            user.doOperation(choice,bookList);
             if(choice==0){
                 break;
             }

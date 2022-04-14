@@ -13,6 +13,6 @@ public class ExitOperation implements IOperation {
     //销毁或者使用数据后退出
     @Override
     public void work(BookList bookList){
-        System.out.println("推出系统!");
+        System.out.println("退出系统!");
     }
 }

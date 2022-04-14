@@ -12,6 +12,6 @@ import book.BookList;
 public class DisplayOperation implements IOperation {
     @Override
     public void work(BookList bookList){
-        System.out.println("展示图书!");
+        System.out.println("显示图书!");
     }
 }

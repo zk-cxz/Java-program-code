@@ -1,5 +1,7 @@
 package user;
 
+import operation.*;
+
 import java.util.Scanner;
 
 /**
@@ -13,6 +15,13 @@ public class AdminUser extends User {
 
     public AdminUser(String name) {
         super(name);
+        this.iOperation=new IOperation[]{
+                new ExitOperation(),
+                new FindOperation(),
+                new AddOperation(),
+                new DelOperation(),
+                new DisplayOperation()
+        };
     }
 
     public int menu(){

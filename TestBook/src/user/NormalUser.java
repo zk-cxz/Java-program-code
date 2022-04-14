@@ -1,5 +1,7 @@
 package user;
 
+import operation.*;
+
 import java.util.Scanner;
 
 /**
@@ -12,6 +14,12 @@ import java.util.Scanner;
 public class NormalUser extends User {
     public NormalUser(String name) {
         super(name);
+        this.iOperation=new IOperation[] {
+                new ExitOperation(),
+                new FindOperation(),
+                new BorrowOperation(),
+                new ReturnOperation()
+        };
     }
 
     public int menu(){
