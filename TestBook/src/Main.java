@@ -44,9 +44,6 @@ public class Main {
         while(true) {
             int choice=user.menu();
             user.doOperation(choice,bookList);
-            if(choice==0){
-                break;
-            }
         }
     }
 }

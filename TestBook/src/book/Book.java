@@ -64,11 +64,11 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", price=" + price +
-                ", type='" + type + '\'' +
-                ", isBorrowed=" + isBorrowed +
+                "书名:" + name +
+                ", 作者:" + author +
+                ", 价格:" + price +
+                ", 类型:" + type +
+                "," + ((isBorrowed==true)?" 已借出":" 未借出") +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package operation;
 
+import book.Book;
 import book.BookList;
 
 /**
@@ -14,5 +15,10 @@ public class ExitOperation implements IOperation {
     @Override
     public void work(BookList bookList){
         System.out.println("退出系统!");
+        int num=bookList.getUsedSize();
+        for (int i = 0; i < num; i++) {
+            bookList.setBooks(i,null);
+        }
+        System.exit(0);
     }
 }
