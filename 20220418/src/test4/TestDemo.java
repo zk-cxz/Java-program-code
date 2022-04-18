@@ -29,7 +29,7 @@ class Derived extends Base {
     public void func(){
         func1();
         func1(10);
-        func2();
+        super.func2();
     }
 }
 
