@@ -12,7 +12,7 @@ class Base{
     public int b;
 }
 
-class Derived extends Base{
+class Derived extends test1.Base {
     public int c;
 
     public void func(){
@@ -23,5 +23,9 @@ class Derived extends Base{
 }
 
 public class TestDemo2 {
-
+    public static void main(String[] args) {
+        Derived derived=new Derived();
+        derived.func();
+        System.out.println(derived.a);
+    }
 }
