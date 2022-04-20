@@ -10,7 +10,7 @@ import java.util.Scanner;
  * Time: 23:02
  */
 public class TestDemo1 {
-    public static StringBuffer func(String str) {
+    public static String func(String str) {
         int[] array = new int[127];
         StringBuffer str1=new StringBuffer();
         for (int i = 0; i < str.length(); i++) {
@@ -19,14 +19,14 @@ public class TestDemo1 {
             }
             array[str.charAt(i)]++;
         }
-        return str1;
+        return str1.toString();
     }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         while(scan.hasNextLine()) {
             String str = scan.nextLine();
-            StringBuffer ret = func(str);
+            String ret = func(str);
             System.out.println(ret);
         }
     }
