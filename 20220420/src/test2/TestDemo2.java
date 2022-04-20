@@ -26,5 +26,5 @@ class D extends B {
 
 public class TestDemo2 {
     D d=new D();
-    d.func();   //直接报错
+    //d.func();   //直接报错
 }
