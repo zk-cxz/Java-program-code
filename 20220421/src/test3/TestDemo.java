@@ -7,7 +7,7 @@ package test3;
  * Date: 2022-04-21
  * Time: 16:34
  */
-class Animal{
+/*class Animal{
     public String name;
     public int age;
 
@@ -16,7 +16,7 @@ class Animal{
     }
 }
 
-interface IRun{
+*//*interface IRun{
     void run();
 }
 
@@ -26,7 +26,7 @@ interface ISwim{
 
 interface IFly{
     void fly();
-}
+}*//*
 
 class Duck extends Animal implements IRun,ISwim,IFly{
 
@@ -57,4 +57,4 @@ public class TestDemo {
         duck.swim();
         duck.fly();
     }
-}
+}*/
