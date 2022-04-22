@@ -38,10 +38,19 @@ class Student implements Comparable<Student>{
     }*/
 }
 
+//根据年龄比较
 class AgeComparator implements Comparator<Student> {
     @Override
     public int compare(Student o1, Student o2) {
         return o1.age-o2.age;
+    }
+}
+
+//根据姓名比较
+class NameComparator implements Comparator<Student>{
+    @Override
+    public int compare(Student o1, Student o2) {
+        return o1.name.compareTo(o2.name);
     }
 }
 
