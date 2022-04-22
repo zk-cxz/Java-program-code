@@ -20,6 +20,11 @@ class A{
         A a1 = (A) o;
         return a == a1.a && Objects.equals(b, a1.b);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b);
+    }
 }
 
 public class TestDemo1 {
@@ -28,8 +33,11 @@ public class TestDemo1 {
         A a2=new A();
         int a=1;
         int b=1;
-        System.out.println(a==b);   //true
+        /*System.out.println(a==b);   //true
         System.out.println(a1==a2);   //false
-        System.out.println(a1.equals(a2));   //true
+        System.out.println(a1.equals(a2));   //true*/
+
+        System.out.println(a1.hashCode());
+        System.out.println(a2.hashCode());
     }
 }
