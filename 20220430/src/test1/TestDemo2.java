@@ -9,7 +9,6 @@ package test1;
  */
 public class TestDemo2 {
     public static void main(String[] args) {
-
         //String str4="abc";
         String str1=new String("abc");
         String str3="abc";
