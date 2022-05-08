@@ -445,7 +445,7 @@ public class MySingleList {
                 break;
             }
         }
-        if(fast!=null&&fast.next!=null){
+        if(fast==null||fast.next==null){
             return null;
         }
         slow=head;
