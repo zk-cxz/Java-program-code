@@ -326,7 +326,133 @@ public class MySingleList {
      * @param x
      * @return
      */
-    /*public ListNode partition(int x){
+    public ListNode partition(int x){
+        if(head==null){
+            return null;
+        }
+        ListNode bs=null;
+        ListNode be=null;
+        ListNode as=null;
+        ListNode ae=null;
 
-    }*/
+        ListNode cur=head;
+        while(cur!=null){
+            if(cur.val<x){
+                if(bs==null){
+                    bs=cur;
+                    be=cur;
+                }else{
+                    be.next=cur;
+                    be=be.next;
+                }
+            }else{
+                if(as==null){
+                    as=cur;
+                    ae=cur;
+                }else{
+                    ae=cur;
+                    ae=ae.next;
+                }
+            }
+            cur=cur.next;
+        }
+        if(bs==null){
+            return as;
+        }
+        be.next=as;
+        if(as!=null){
+            ae.next=null;
+        }
+        return bs;
+    }
+
+    /**
+     * 求两链表的交点
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode getIntersectionNode(ListNode headA,ListNode headB){
+        if(headA==null||headB==null){
+            return null;
+        }
+        int lenA=0;
+        int lenB=0;
+        ListNode pl=headA;
+        ListNode ps=headB;
+        while(pl!=null){
+            lenA++;
+            pl=pl.next;
+        }
+        while(ps!=null){
+            lenB++;
+            ps=ps.next;
+        }
+        pl=headA;
+        ps=headB;
+        int len=lenA-lenB;
+        if(len<0){
+            pl=headB;
+            ps=headA;
+            len=-len;
+        }
+        while(len>0){
+            pl=pl.next;
+            len--;
+        }
+        while(pl!=ps){
+            pl=pl.next;
+            ps=ps.next;
+        }
+        return pl;
+    }
+
+    /**
+     * 判断链表是否构成环
+     * @return
+     */
+    public boolean hasCycle(){
+        if(head==null){
+            return false;
+        }
+        ListNode fast=head;
+        ListNode slow=head;
+        while(fast!=null&&fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 查找进入环的节点
+     * @param head
+     * @return
+     */
+    public ListNode detectCycle(ListNode head){
+        if(head==null){
+            return null;
+        }
+        ListNode fast=head;
+        ListNode slow=head;
+        while(fast!=null&&fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                break;
+            }
+        }
+        if(fast!=null&&fast.next!=null){
+            return null;
+        }
+        slow=head;
+        while(slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        return slow;
+    }
 }
