@@ -9,15 +9,21 @@ public class Test {
     public static void main(String[] args) {
         BinaryTree binaryTree=new BinaryTree();
         BinaryTree.TreeNode root=binaryTree.createTree();
-        binaryTree.preOrder(root);
+        /*binaryTree.preOrder(root);
         System.out.println();
-        System.out.println(binaryTree.preorderTraversal(root));
-        binaryTree.inOrder(root);
+        System.out.println(binaryTree.preorderTraversal(root));*/
+        binaryTree.preOrder2(root);
         System.out.println();
-        System.out.println(binaryTree.inorderTraversal(root));
-        binaryTree.postOrder(root);
+        /*binaryTree.inOrder(root);
         System.out.println();
-        System.out.println(binaryTree.postorderTraversal(root));
+        System.out.println(binaryTree.inorderTraversal(root));*/
+        binaryTree.inOrder2(root);
+        System.out.println();
+        /*binaryTree.postOrder(root);
+        System.out.println();
+        System.out.println(binaryTree.postorderTraversal(root));*/
+        binaryTree.postOrder2(root);
+        System.out.println();
         binaryTree.size1(root);
         System.out.println(BinaryTree.treeSize);
         System.out.println(binaryTree.size2(root));

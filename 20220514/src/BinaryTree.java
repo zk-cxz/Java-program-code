@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -77,6 +74,28 @@ public class BinaryTree {
     }
 
     /**
+     * 非递归进行前序遍历
+     * @param root
+     */
+    public void preOrder2(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        stack.push(root);
+        while(!stack.empty()){
+            TreeNode tmp=stack.pop();
+            System.out.print(tmp.val+" ");
+            if(tmp.right!=null){
+                stack.push(tmp.right);
+            }
+            if(tmp.left!=null) {
+                stack.push(tmp.left);
+            }
+        }
+    }
+
+    /**
      * 中序遍历
      * @param root
      */
@@ -108,10 +127,62 @@ public class BinaryTree {
     }
 
     /**
+     * 非递归进行中序遍历
+     * @param root
+     */
+    public void inOrder2(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        while(root!=null||!stack.isEmpty()){
+            while(root!=null){
+                stack.push(root);
+                root=root.left;
+            }
+            root=stack.pop();
+            System.out.print(root.val+" ");
+            root=root.right;
+        }
+
+        /* 思路二（自己想）：比较复杂
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack1=new Stack<>();
+        Stack<TreeNode> stack2=new Stack<>();
+        stack1.push(root);
+        while(!stack1.empty()){
+            TreeNode tmp=stack1.pop();
+            if(tmp.right!=null&&tmp.left!=null){
+                stack1.push(tmp.right);
+                stack1.push(tmp.left);
+            }
+            if(tmp.left==null||tmp.right==null){
+                if(tmp.left!=null){
+                    System.out.print(tmp.left.val+" ");
+                    System.out.print(tmp.val+" ");
+                    System.out.print(stack2.pop().val+" ");
+                }else{
+                    System.out.print(tmp.val+" ");
+                    if(tmp.right!=null){
+                        System.out.print(tmp.right.val+" ");
+                    }
+                    if(!stack2.empty()){
+                        System.out.print(stack2.pop().val+" ");
+                    }
+                }
+                continue;
+            }
+            stack2.push(tmp);
+        }*/
+    }
+
+    /**
      * 后序遍历
      * @param root
      */
-    void postOrder(TreeNode root){
+    public void postOrder(TreeNode root){
         if(root==null){
             return;
         }
@@ -136,6 +207,33 @@ public class BinaryTree {
         ret.addAll(rightTree);
         ret.add(root.val);
         return ret;
+    }
+
+    /**
+     * 非递归进行后序遍历
+     * @param root
+     */
+    public void postOrder2(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode prev=null;
+        while(root!=null||!stack.empty()){
+            while(root!=null){
+                stack.push(root);
+                root=root.left;
+            }
+            root=stack.pop();
+            if(root.right==null||root.right==prev){
+                System.out.print(root.val+" ");
+                prev=root;
+                root=null;
+            }else{
+                stack.push(root);
+                root=root.right;
+            }
+        }
     }
 
     /**
