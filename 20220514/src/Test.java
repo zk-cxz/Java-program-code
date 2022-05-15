@@ -12,5 +12,23 @@ public class Test {
         binaryTree.preOrder(root);
         System.out.println();
         System.out.println(binaryTree.preorderTraversal(root));
+        binaryTree.inOrder(root);
+        System.out.println();
+        System.out.println(binaryTree.inorderTraversal(root));
+        binaryTree.postOrder(root);
+        System.out.println();
+        System.out.println(binaryTree.postorderTraversal(root));
+        binaryTree.size1(root);
+        System.out.println(BinaryTree.treeSize);
+        System.out.println(binaryTree.size2(root));
+        binaryTree.getLeafNodeCount1(root);
+        System.out.println(BinaryTree.leafSize);
+        System.out.println(binaryTree.getLeafNodeCount2(root));
+        System.out.println(binaryTree.getKLevelNodeCount(root, 3));
+        System.out.println(binaryTree.getHeight(root));
+        System.out.println(binaryTree.find(root, 6).val);
+        binaryTree.levelOrder1(root);
+        System.out.println();
+        System.out.println(binaryTree.levelOrder2(root));
     }
 }
