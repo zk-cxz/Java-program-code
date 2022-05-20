@@ -405,11 +405,115 @@ public class BinaryTree {
      * 判断二叉树是否是完全二叉树
      */
     public boolean isCompleteTree(TreeNode root){
-
+        if(root==null){
+            return false;
+        }
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            TreeNode cur=queue.poll();
+            if(cur!=null){
+                queue.offer(cur.left);
+                queue.offer(cur.right);
+            }else{
+                break;
+            }
+        }
+        while(!queue.isEmpty()){
+            TreeNode cur=queue.peek();
+            if(cur==null){
+                queue.poll();
+            }else{
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
-     * 判断两二叉树是否是相同的
+     * 判断两二叉树是否是相同的 时间复杂度：O(min(m,n))
      */
+    public boolean isSameTree(TreeNode p, TreeNode q){
+        if(p==null&&q!=null){
+            return false;
+        }
+        if(p!=null&&q==null){
+            return false;
+        }
+        if(p==null&&q==null){
+            return true;
+        }
+        if(p.val!=q.val){
+            return false;
+        }
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+    }
 
+    /**
+     * 判断一个树是否是另一个树的子树 时间复杂度：O(t * s)
+     */
+    public boolean isSubtree(TreeNode root, TreeNode subRoot){
+        if(root==null){
+            return false;
+        }
+        if(isSameTree(root,subRoot)){
+            return true;
+        }
+        if(isSameTree(root.left,subRoot)){
+            return true;
+        }
+        if(isSameTree(root.right,subRoot)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 判断是否是平衡二叉树：每个节点都要判断是不是平衡的，每个节点都要求左右高度的差值<=1
+     */
+    public boolean isBalanced(TreeNode root){
+        if(root==null){
+            return true;
+        }
+        return height(root)!=-1;
+    }
+
+    public static int height(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int leftHeight=height(root.left);
+        int rightHeight=height(root.right);
+        if(leftHeight>=0 && rightHeight>=0 && Math.abs(leftHeight-rightHeight)<=1){
+            return Math.max(leftHeight,rightHeight)+1;
+        }else{
+            return -1;
+        }
+    }
+
+    /**
+     * 判断一个二叉树是否是对称二叉树
+     */
+    public boolean isSymmetric(TreeNode root){
+        if(root==null){
+            return true;
+        }
+        return isSymmetricChild(root.left,root.right);
+    }
+
+    public static boolean isSymmetricChild(TreeNode leftTree,TreeNode rightTree){
+        if(leftTree==null&&rightTree!=null){
+            return false;
+        }
+        if(leftTree!=null&&rightTree==null){
+            return false;
+        }
+        if(leftTree==null&&rightTree==null){
+            return true;
+        }
+        if(leftTree.val!=rightTree.val){
+            return false;
+        }
+        return isSymmetricChild(leftTree.left,rightTree.right) && isSymmetricChild(leftTree.right,rightTree.left);
+    }
 }
