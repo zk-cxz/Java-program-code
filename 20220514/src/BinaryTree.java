@@ -400,4 +400,16 @@ public class BinaryTree {
         }
         return ret;
     }
+
+    /**
+     * 判断二叉树是否是完全二叉树
+     */
+    public boolean isCompleteTree(TreeNode root){
+
+    }
+
+    /**
+     * 判断两二叉树是否是相同的
+     */
+
 }
