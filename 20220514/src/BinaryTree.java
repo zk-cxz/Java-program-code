@@ -1,3 +1,5 @@
+import com.sun.javafx.image.IntPixelGetter;
+
 import java.util.*;
 
 /**
@@ -515,5 +517,293 @@ public class BinaryTree {
             return false;
         }
         return isSymmetricChild(leftTree.left,rightTree.right) && isSymmetricChild(leftTree.right,rightTree.left);
+    }
+
+    /**
+     * LCA问题:找二叉树的最近公共祖先:lowestCommonAncestor1为递归的方法实现,lowestCommonAncestor2为非递归的方法实现(使用两个栈)
+     */
+    public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q){
+        if(root==null){
+            return null;
+        }
+        if(root==p||root==q){
+            return root;
+        }
+        //分别找根的左边和右边
+        TreeNode leftTree=lowestCommonAncestor1(root.left,p,q);
+        TreeNode rightTree=lowestCommonAncestor1(root.right,p,q);
+        if(leftTree!=null&&rightTree!=null){
+            return root;
+        }else if(leftTree!=null){
+            return leftTree;
+        }else if(rightTree!=null){
+            return rightTree;
+        }
+        return null;
+    }
+
+    /**
+     * 将指定节点上的root到node之间路径上的节点存储到栈当中
+     * @param root
+     * @param node
+     * @param stack
+     * @return
+     */
+    private boolean getPath(TreeNode root,TreeNode node,Stack<TreeNode> stack){
+        if(root==null||node==null){
+            return false;
+        }
+        stack.push(root);
+        if(root==node){
+            return true;
+        }
+        boolean flag1=getPath(root.left,node,stack);
+        if(flag1==true){
+            return true;
+        }
+        boolean flag2=getPath(root.right,node,stack);
+        if(flag2==true){
+            return true;
+        }
+        stack.pop();
+        return false;
+    }
+
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q){
+        Stack<TreeNode> stack1=new Stack<>();
+        getPath(root,p,stack1);
+        Stack<TreeNode> stack2=new Stack<>();
+        getPath(root,q,stack2);
+        int size1=stack1.size();
+        int size2=stack2.size();
+        if(size1>size2){
+            int size=size1-size2;
+            while(size>0){
+                stack1.pop();
+                size--;
+            }
+        }else{
+            int size=size2-size1;
+            while(size>0){
+                stack2.pop();
+                size--;
+            }
+        }
+        while(!stack1.empty()){
+            if(stack1.peek()==stack2.peek()){
+                return stack1.peek();
+            }else{
+                stack1.pop();
+                stack2.pop();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 将二叉搜索树转换成一个排序的双向链表
+     */
+    public TreeNode prev=null;
+    public void ConvertChild(TreeNode p){
+        if(p==null){
+            return;
+        }
+        ConvertChild(p.left);
+        p.left=prev;
+        if(prev!=null){
+            prev.right=p;
+        }
+        prev=p;
+        ConvertChild(p.right);
+    }
+
+    public TreeNode Convert(TreeNode pRootOfTree){
+        if(pRootOfTree==null){
+            return null;
+        }
+        ConvertChild(pRootOfTree);
+        TreeNode head=pRootOfTree;
+        while(head.left!=null){
+            head=head.left;
+        }
+        return head;
+    }
+
+    /**
+     * 由前序遍历和中序遍历来构造出二叉树
+     * @param preorder
+     * @param inorder
+     * @return
+     */
+    public int preIndex=0;
+    public TreeNode buildTreeChildPre(int[] preorder,int[] inorder,int inbegin,int inend){
+        if(inbegin>inend){
+            return null;
+        }
+        TreeNode root=new TreeNode(preorder[preIndex]);
+        int rootIndex=findRootIndexPre(inorder,inbegin,inend,preorder[preIndex]);
+        preIndex++;
+        root.left=buildTreeChildPre(preorder,inorder,inbegin,rootIndex-1);
+        root.right=buildTreeChildPre(preorder,inorder,rootIndex+1,inend);
+        return root;
+    }
+
+    private int findRootIndexPre(int[] inorder,int inbegin,int inend,int val){
+        for (int i = inbegin; i <= inend; i++) {
+            if(inorder[i]==val){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public TreeNode buildTreePre(int[] preorder, int[] inorder){
+        return buildTreeChildPre(preorder,inorder,0,inorder.length-1);
+    }
+
+    /**
+     * 由后序遍历和中序遍历来构造出二叉树
+     * @param inorder
+     * @param postorder
+     * @return
+     */
+    public int postIndex=0;
+    public TreeNode buildTreeChildPost(int[] postorder,int[] inorder,int inbegin,int inend){
+        if(inbegin>inend){
+            return null;
+        }
+        TreeNode root=new TreeNode(postorder[postIndex]);
+        int rootIndex=findRootIndexPost(inorder,inbegin,inend,postorder[postIndex]);
+        postIndex--;
+        root.left=buildTreeChildPost(postorder,inorder,inbegin,rootIndex-1);
+        root.right=buildTreeChildPost(postorder,inorder,rootIndex+1,inend);
+        return root;
+    }
+
+    private int findRootIndexPost(int[] inorder,int inbegin,int inend,int val){
+        for (int i = inbegin; i <= inend; i++) {
+            if(inorder[i]==val){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public TreeNode buildTreePost(int[] inorder, int[] postorder){
+        postIndex=postorder.length-1;
+        return buildTreeChildPost(postorder,inorder,0,inorder.length-1);
+    }
+
+    /**
+     * 根据二叉树创建字符串
+     */
+    public void tree2strChild(TreeNode root,StringBuilder sb){
+        if(root==null){
+            return;
+        }
+        sb.append(root.val);
+        if(root.left!=null){
+            sb.append("(");
+            tree2strChild(root.left,sb);
+            sb.append(")");
+        }else{
+            if(root.right==null){
+                return;
+            }else{
+                sb.append("()");
+            }
+        }
+        if(root.right==null){
+            return;
+        }else{
+            sb.append("(");
+            tree2strChild(root.right,sb);
+            sb.append(")");
+        }
+    }
+
+    public String tree2str(TreeNode root){
+        if(root==null){
+            return null;
+        }
+        StringBuilder sb=new StringBuilder();
+        tree2strChild(root,sb);
+        return sb.toString();
+    }
+
+    /**
+     * 非递归实现前序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversalNor(TreeNode root){
+        List<Integer> list=new ArrayList<>();
+        if(root==null){
+            return list;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode cur=root;
+        while(cur!=null||!stack.empty()) {
+            while (cur != null) {
+                stack.push(cur);
+                list.add(cur.val);
+                cur = cur.left;
+            }
+            TreeNode top = stack.pop();
+            cur = top.right;
+        }
+        return list;
+    }
+
+    /**
+     * 非递归实现中序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversalNor(TreeNode root){
+        List<Integer> list=new ArrayList<>();
+        if(root==null){
+            return list;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode cur=root;
+        while(cur!=null||!stack.empty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode top = stack.pop();
+            list.add(top.val);
+            cur = top.right;
+        }
+        return list;
+    }
+
+    /**
+     * 非递归实现后序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> postorderTraversalNor(TreeNode root){
+        List<Integer> list=new ArrayList<>();
+        if(root==null){
+            return list;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode cur=root;
+        TreeNode prev=null;
+        while(cur!=null){
+            stack.push(cur);
+            cur=cur.left;
+        }
+        TreeNode top=stack.peek();
+        if(top.right==null||top.right==prev){
+            stack.pop();
+            list.add(top.val);
+            prev=top;
+        }else{
+            cur=top.right;
+        }
+        return list;
     }
 }
