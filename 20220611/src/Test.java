@@ -23,5 +23,10 @@ public class Test {
         for (int i = 0; i < testHeap.usedSize; i++) {
             System.out.print(testHeap.elem[i]+" ");
         }
+        System.out.println();
+        testHeap.heapSort();
+        for (int i = 0; i < testHeap.usedSize; i++) {
+            System.out.print(testHeap.elem[i]+" ");
+        }
     }
 }

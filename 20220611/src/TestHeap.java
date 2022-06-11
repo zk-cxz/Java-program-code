@@ -128,4 +128,28 @@ public class TestHeap {
         this.elem[0]=this.elem[this.usedSize];
         shiftDown(0,this.usedSize);
     }
+
+    /**
+     * 获取堆顶元素
+     * @return
+     */
+    public int peek(){
+        if(isEmpty()){
+            System.out.println("优先级队列为空！");
+            return -1;
+        }
+        return this.elem[0];
+    }
+
+    /**
+     * 堆排序
+     */
+    public void heapSort(){
+        int end=this.usedSize-1;
+        while(end>0){
+            swap(this.elem,0,end);
+            shiftDown(0,end);
+            end--;
+        }
+    }
 }
