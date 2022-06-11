@@ -17,7 +17,7 @@ class IntCmp implements Comparator<Integer>{
 
 public class TestDemo {
     /**
-     * 查找最小的K个元素
+     * 查找最小的K个元素 时间复杂度：O(n*logk)
      * @param arr
      * @param k
      * @return
