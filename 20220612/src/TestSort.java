@@ -95,24 +95,89 @@ public class TestSort {
 
     /**
      * 堆排序
-     * 时间复杂度：
-     * 空间复杂度：
-     * 稳定性：
+     * 时间复杂度：不管数据是否有序，都是 O(n*logn)
+     * 空间复杂度：O(1)
+     * 稳定性：是一种不稳定排序
      * @param array
      */
     public static void heapSort(int[] array){
         creatHeap(array);
-
+        int end=array.length-1;
+        while(end>=0){
+            swap(array,0,end);
+            shiftDown(array,0,end);
+            end--;
+        }
     }
 
     private static void shiftDown(int[] array,int root,int len){
-
+        int parent=root;
+        int chird=2*parent+1;
+        while(chird<len){
+            if(chird+1<len && array[chird]<array[chird+1]){
+                chird+=1;
+            }
+            if(array[chird]>array[parent]){
+                swap(array,chird,parent);
+                parent=chird;
+                chird=2*parent+1;
+            }else{
+                break;
+            }
+        }
     }
 
     private static void creatHeap(int[] array){
         for(int p=(array.length-1-1)/2;p>=0;p--){
             shiftDown(array,p,array.length);
         }
+    }
+
+    /**
+     * 冒泡排序
+     * 时间复杂度：不管是否是有序，都是O(n^2)
+     * 空间复杂度：O(1)
+     * 稳定性：是一种稳定的排序
+     * @param array
+     */
+    public static void bubbleSort1(int[] array){
+        for (int i = 0; i < array.length-1; i++) {
+            for (int j = 0; j < array.length-i-1; j++) {
+                if(array[j]>array[j+1]){
+                    swap(array,j,j+1);
+                }
+            }
+        }
+    }
+
+    /**
+     * 优化版的冒泡排序，对后面都是有序的数据不再进行冒泡排序
+     * @param array
+     */
+    public static void bubbleSort2(int[] array){
+        for (int i = 0; i < array.length-1; i++) {
+            boolean flag=true;
+            for (int j = 0; j < array.length-i-1; j++) {
+                if(array[j]>array[j+1]){
+                    swap(array,j,j+1);
+                    flag=false;
+                }
+            }
+            if(flag){
+                break;
+            }
+        }
+    }
+
+    /**
+     * 快速排序之Hoare法
+     * 时间复杂度：
+     * 空间复杂度：
+     * 稳定性：
+     * @param array
+     */
+    public static void partitionHoare(int[] array){
+
     }
 
 
@@ -122,7 +187,10 @@ public class TestSort {
         System.out.println("排序前:"+ Arrays.toString(array));
         //insertSort(array);
         //shellSort(array);
-        selectSort(array);
+        //selectSort(array);
+        //heapSort(array);
+        //bubbleSort1(array);
+        bubbleSort2(array);
         System.out.println("排序后:"+Arrays.toString(array));
     }
 }
