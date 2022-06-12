@@ -180,7 +180,20 @@ public class TestSort {
 
     }
 
+    private static int partition(int[] aarray,int low,int hight){
 
+        return -1;
+    }
+
+    private static void quick(int[] array,int left,int right){
+        int prvot=partition(array,left,right);
+        quick(array,left,prvot-1);
+        quick(array,prvot+1,right);
+    }
+
+    public static void quickSort(int[] array){
+        quick(array,0,array.length-1);
+    }
 
     public static void main(String[] args) {
         int[] array={6,1,6,3,4,2,10,9,36,45,8,19};
@@ -190,7 +203,7 @@ public class TestSort {
         //selectSort(array);
         //heapSort(array);
         //bubbleSort1(array);
-        bubbleSort2(array);
+        //bubbleSort2(array);
         System.out.println("排序后:"+Arrays.toString(array));
     }
 }
