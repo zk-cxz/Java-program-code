@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * Created with IntelliJ IDEA.
@@ -171,29 +172,257 @@ public class TestSort {
 
     /**
      * 快速排序之Hoare法
+     * @param array
+     * @param low
+     * @param hight
+     * @return
+     */
+    private static int partitionHoare(int[] array,int low,int hight){
+        int i=low;
+        int tmp=array[low];
+        while(low<hight){
+            //找到hight所在的下标
+            while(low<hight && array[hight]>=tmp){
+                hight--;
+            }
+            //找到low所在的下标
+            while(low<hight && array[low]<=tmp){
+                low++;
+            }
+            //将两数进行交换
+            swap(array,low,hight);
+        }
+        swap(array,low,i);
+        return low;
+    }
+
+    /**
+     * 快速排序之挖坑法
+     * @param array
+     * @param low
+     * @param hight
+     * @return
+     */
+    private static int partitionHole(int[] array,int low,int hight){
+        int tmp=array[low];
+        while(low<hight){
+            while(low<hight && array[hight]>=tmp){
+                hight--;
+            }
+            array[low]=array[hight];
+            while(low<hight && array[low]<=tmp){
+                low++;
+            }
+            array[hight]=array[low];
+        }
+        array[low]=tmp;
+        return low;
+    }
+
+    /**
+     * 快速排序之双指针法（法一）
+     * @param array
+     * @param low
+     * @param hight
+     */
+    private static int partition1(int[] array,int low,int hight){
+        int prev=low;
+        int cur=low+1;
+        while(cur<=hight){
+            if(array[cur]<array[low] && array[++prev]!=array[cur]){
+                swap(array,cur,prev);
+            }
+            cur++;
+        }
+        swap(array,prev,low);
+        return prev;
+    }
+
+    /**
+     * 快速排序之双指针法（法二）
+     * @param array
+     * @param low
+     * @param hight
+     */
+    private static int partition2(int[] array,int low,int hight){
+        int d=low+1;
+        int tmp=array[low];
+        for (int i = low+1; i <= hight; i++) {
+            if(array[i]<tmp){
+                swap(array,i,d);
+                d++;
+            }
+        }
+        swap(array,d-1,low);
+        return d-1;
+    }
+
+    /**
+     * 快速排序版的直接插入排序
+     * @param array
+     * @param left
+     * @param right
+     */
+    private static void insertSortRange(int[] array,int left,int right){
+        for (int i = 1; i <= right; i++) {
+            int tmp=array[i];
+            int j = i-1;
+            for (; j >= left; j--) {
+                if(array[j]>tmp){
+                    array[j+1]=array[j];
+                }else{
+                    break;
+                }
+            }
+            array[j+1]=tmp;
+        }
+    }
+
+    /**
+     * 找到三个数中间大小数字的下标
+     * @param array
+     * @param left
+     * @param right
+     * @return
+     */
+    private static int medianOfTreeIndex(int[] array,int left,int right){
+        int mid=left+(right-left)>>>1;
+        if(array[left]<array[right]){
+            if(array[mid]<array[left]){
+                return left;
+            }else if(array[mid]>array[right]){
+                return right;
+            }else{
+                return mid;
+            }
+        }else{
+            if(array[mid]>array[left]){
+                return left;
+            }else if(array[mid]<array[right]){
+                return right;
+            }else{
+                return mid;
+            }
+        }
+    }
+
+    private static void quick(int[] array,int left,int right){
+        if(left>=right){
+            return;
+        }
+
+        //在到达某个区间的时候，可以使用直接插入排序【来优化区间内的排序】
+        if(right-left+1<=3){
+            insertSortRange(array,left,right);
+            return;
+        }
+
+        //三数取中法【优化的是你本身的分割，减少递归的深度】
+        int index=medianOfTreeIndex(array,left,right);
+        swap(array,left,right);
+
+        //后面实现：将基准相同的数字，靠在一起，从而减少递归的区间
+
+        //找基准
+        int prvot=partitionHoare(array,left,right); //Hoare法
+        //int prvot=partitionHole(array,left,right); 挖坑法
+        //int prvot=partition1(array,left,right); 双指针法一
+        //int prvot=partition2(array,left,right); 双指针法一
+        quick(array,left,prvot-1);
+        quick(array,prvot+1,right);
+    }
+
+    /**
+     * 快速排序
+     * 时间复杂度：最好情况下：O(n*logn)   最坏情况下：O(n^2)
+     * 空间复杂度：最好情况下：O(logn)   最坏情况下：O(n)
+     * 稳定性：是一种不稳定的排序
+     * @param array
+     */
+    public static void quickSort(int[] array){
+        quick(array,0,array.length-1);
+    }
+
+    /**
+     * 非递归实现快速排序
+     * @param array
+     */
+    public static void quickSortNor(int[] array){
+        Stack<Integer> stack=new Stack<>();
+        int left=0;
+        int right=array.length-1;
+        int pivot=partitionHole(array,left,right);
+        //左边有两个数据及以上
+        if(pivot>left+1){
+            stack.push(left);
+            stack.push(pivot-1);
+        }
+        //右边有两个数据及以上
+        if(pivot<right-1){
+            stack.push(pivot+1);
+            stack.push(right);
+        }
+        while(!stack.empty()){
+            right=stack.pop();
+            left=stack.pop();
+            pivot=partitionHole(array,left,right);
+            if(pivot>left+1){
+                stack.push(left);
+                stack.push(pivot-1);
+            }
+            if(pivot<right-1){
+                stack.push(pivot+1);
+                stack.push(right);
+            }
+        }
+    }
+
+    private static void merge(int[] array,int left,int mid,int right){
+        int s1=left;
+        int e1=mid;
+        int s2=mid+1;
+        int e2=right;
+        int[] tmpArr=new int[right-left+1];
+        int k=0;   //k表示tmpArr的下标
+        //执行这段语句：两个段都是有数据的
+        while(s1<=e1 && s2<=e2){
+            if(array[s1]>array[s2]){
+                tmpArr[k++]=array[s1++];
+            }else{
+                tmpArr[k++]=array[s2++];
+            }
+        }
+        //将两段中一段剩余数据全部拿过来合并到后面
+        while(s1<=e1){
+
+        }
+        while(s2<=e2){
+
+        }
+    }
+
+    private static void mergeSortInternal(int[] array,int left,int right){
+        if(left>=right){
+            return;
+        }
+        int mid=left+(right-left)>>>1;
+        mergeSortInternal(array,left,mid);
+        mergeSortInternal(array,mid+1,right);
+        merge(array,left,mid,right);
+    }
+
+    /**
+     * 归并排序
      * 时间复杂度：
      * 空间复杂度：
      * 稳定性：
      * @param array
      */
-    public static void partitionHoare(int[] array){
-
+    public static void mergeSort(int[] array){
+        mergeSortInternal(array,0,array.length-1);
     }
 
-    private static int partition(int[] aarray,int low,int hight){
 
-        return -1;
-    }
-
-    private static void quick(int[] array,int left,int right){
-        int prvot=partition(array,left,right);
-        quick(array,left,prvot-1);
-        quick(array,prvot+1,right);
-    }
-
-    public static void quickSort(int[] array){
-        quick(array,0,array.length-1);
-    }
 
     public static void main(String[] args) {
         int[] array={6,1,6,3,4,2,10,9,36,45,8,19};
@@ -204,6 +433,8 @@ public class TestSort {
         //heapSort(array);
         //bubbleSort1(array);
         //bubbleSort2(array);
+        //quickSort(array);
+        quickSortNor(array);
         System.out.println("排序后:"+Arrays.toString(array));
     }
 }
