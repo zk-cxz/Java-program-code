@@ -386,7 +386,7 @@ public class TestSort {
         int k=0;   //k表示tmpArr的下标
         //执行这段语句：两个段都是有数据的
         while(s1<=e1 && s2<=e2){
-            if(array[s1]>array[s2]){
+            if(array[s1]<array[s2]){
                 tmpArr[k++]=array[s1++];
             }else{
                 tmpArr[k++]=array[s2++];
@@ -394,10 +394,13 @@ public class TestSort {
         }
         //将两段中一段剩余数据全部拿过来合并到后面
         while(s1<=e1){
-
+            tmpArr[k++]=array[s1++];
         }
         while(s2<=e2){
-
+            tmpArr[k++]=array[s2++];
+        }
+        for (int i = 0; i < tmpArr.length; i++) {
+            array[i+left]=tmpArr[i];
         }
     }
 
@@ -405,7 +408,7 @@ public class TestSort {
         if(left>=right){
             return;
         }
-        int mid=left+(right-left)>>>1;
+        int mid=left+((right-left)>>>1);
         mergeSortInternal(array,left,mid);
         mergeSortInternal(array,mid+1,right);
         merge(array,left,mid,right);
@@ -434,7 +437,8 @@ public class TestSort {
         //bubbleSort1(array);
         //bubbleSort2(array);
         //quickSort(array);
-        quickSortNor(array);
+        //quickSortNor(array);
+        mergeSort(array);
         System.out.println("排序后:"+Arrays.toString(array));
     }
 }
