@@ -430,7 +430,24 @@ public class TestSort {
      * @param array
      */
     public static void mergeSortNol(int[] array){
-
+        int gap=1;
+        while(gap<array.length){
+            for (int i = 0; i < array.length; i+=2*gap) {
+                int left=i;
+                int mid=left+gap-1;
+                //修正mid
+                if(mid>=array.length){
+                    mid=array.length-1;
+                }
+                int right=mid+gap;
+                //修正right
+                if(right>=array.length){
+                    right=array.length-1;
+                }
+                merge(array,left,mid,right);
+            }
+            gap*=2;
+        }
     }
 
     /**
@@ -441,7 +458,31 @@ public class TestSort {
      * @param array
      */
     public static void countSort(int[] array){
-
+        //获取最大值和最小值
+        int maxVal=array[0];
+        int minVal=array[0];
+        for (int i = 1; i < array.length; i++) {
+            if(array[i]>maxVal){
+                maxVal=array[i];
+            }
+            if(array[i]<minVal){
+                minVal=array[i];
+            }
+        }
+        //计数
+        int range=maxVal-minVal+1;
+        int[] count=new int[range];
+        for (int i = 0; i < array.length; i++) {
+            count[array[i]-minVal]++;
+        }
+        //遍历计数数组，再将数据放回array
+        int index=0;
+        for (int i = 0; i < count.length; i++) {
+            while(count[i]>0){
+                array[index++]=i+minVal;
+                count[i]--;
+            }
+        }
     }
 
     public static void main(String[] args) {
