@@ -498,7 +498,7 @@ public class TestSort {
         //quickSortNor(array);
         //mergeSort(array);
         //mergeSortNol(array);
-        countSort(array);
+        //countSort(array);
         System.out.println("排序后:"+Arrays.toString(array));
     }
 }
