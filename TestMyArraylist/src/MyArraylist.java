@@ -78,7 +78,7 @@ public class MyArraylist {
     }
 
     /**
-     * 查找顺序表最后的某个元素返回其下标
+     * 查找顺序表中的某个元素返回其下标
      * @param toFind
      * @return
      */
