@@ -140,7 +140,7 @@ public class MyArraylist {
      * @param key
      */
     public void remove(int key){
-        if(!isEmpty()){
+        if(isEmpty()){
             throw new MyArrayListEmptyException("顺序表为空");
         }
         int index=indexOf(key);
