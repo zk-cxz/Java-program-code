@@ -33,7 +33,7 @@ public class TestDemo {
         return ret;
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         int numRows=10;
         List<List<Integer>> ret=generate(numRows);
         for (int i = 0; i < numRows; i++) {
@@ -46,7 +46,7 @@ public class TestDemo {
         }
     }
 
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         MyArraylist myArraylist=new MyArraylist();
         myArraylist.add(2);
         myArraylist.add(3);

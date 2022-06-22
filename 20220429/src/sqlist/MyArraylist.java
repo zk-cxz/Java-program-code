@@ -114,7 +114,7 @@ public class MyArraylist {
         if(!checkPosIntGet(pos)){
             throw new MyArrayListIndexOutException("输入下标不合法");
         }
-        if(!isEmpty()){
+        if(isEmpty()){
             throw new MyArrayListEmptyException("顺序表为空");
         }
         return this.elem[pos];
@@ -129,7 +129,7 @@ public class MyArraylist {
         if(!checkPosIntGet(pos)){
             throw new MyArrayListIndexOutException("输入下标不合法");
         }
-        if(!isEmpty()){
+        if(isEmpty()){
             throw new MyArrayListEmptyException("顺序表为空");
         }
         this.elem[pos]=value;
