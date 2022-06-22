@@ -91,6 +91,10 @@ public class MyArraylist {
         return -1;
     }
 
+    /**
+     * 判断顺序表时候为空
+     * @return
+     */
     private boolean isEmpty(){
         return this.usedSize==0;
     }
