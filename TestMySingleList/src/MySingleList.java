@@ -225,5 +225,119 @@ public class MySingleList {
         head=null;
     }
 
+    /**
+     * 反转链表
+     * @return
+     */
+    public ListNode reverseList(){
+        if(this.head==null){
+            return null;
+        }
+        if(this.head.next==null){
+            return this.head;
+        }
+        ListNode cur=this.head.next;
+        this.head.next=null;
+        while(cur!=null){
+            ListNode curNext=cur.next;
+            cur.next=head;
+            this.head=cur;
+            cur=curNext;
+        }
+        return this.head;
+    }
 
+    /**
+     * 查找链表之间的节点
+     * @return
+     */
+    public ListNode middleNode(){
+        if(this.head==null){
+            return null;
+        }
+        ListNode slow=this.head;
+        ListNode fast=this.head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+
+    /**
+     * 查找倒数第k个节点
+     * @param k
+     * @return
+     */
+    public ListNode findKthToTail(int k){
+        if(k<=0){
+            return null;
+        }
+        if(this.head==null){
+            return null;
+        }
+        ListNode fast=this.head;
+        ListNode slow=this.head;
+        while(k-1>0){
+            fast=fast.next;
+            if(fast==null){
+                return null;
+            }
+            k--;
+        }
+        while(fast.next!=null){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        return slow;
+    }
+
+    /**
+     * 判断链表是否是回文数
+     * @return
+     */
+    public boolean chkPalindrome(){
+        if(head==null){
+            return false;
+        }
+        if(head.next==null){
+            return true;
+        }
+        //第一步：先找到链表的中间节点
+        ListNode slow=this.head;
+        ListNode fast=this.head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        //第二步：将slow后面的链表全部逆序
+        ListNode cur=this.head.next;
+        while(cur!=null){
+            ListNode curNext=cur.next;
+            cur.next=slow;
+            slow=cur;
+            cur=curNext;
+        }
+        //第三步：从前后向中间进行比较
+        while(this.head!=slow){
+            if(this.head.val!=slow.val){
+                return false;
+            }
+            if(this.head.next==slow){
+                return true;
+            }
+            this.head=this.head.next;
+            slow=slow.next;
+        }
+        return true;
+    }
+
+    /**
+     * 根据x值的大小来分隔成两部分链表
+     * @param x
+     * @return
+     */
+    public ListNode partition(int x){
+        
+    }
 }
