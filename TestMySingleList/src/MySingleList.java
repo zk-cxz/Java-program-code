@@ -376,4 +376,41 @@ public class MySingleList {
         }
         return bs;
     }
+
+    /**
+     * 将两个有序链表进行合并
+     * @param list1
+     * @param list2
+     * @return
+     */
+    public ListNode mergeTwoLists(ListNode head1, ListNode head2){
+        ListNode pHead=new ListNode(-1);
+        ListNode cur=pHead;
+        while(head1!=null && head2!=null){
+            if(head1.val<=head2.val){
+                cur.next=head1;
+                head1=head1.next;
+            }else{
+                cur.next=head2;
+                head2=head2.next;
+            }
+            cur=cur.next;
+        }
+        if(head1==null){
+            cur.next=head2;
+        }else{
+            cur.next=head1;
+        }
+        return pHead.next;
+    }
+
+    /**
+     * 求两链表的公共节点
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode getIntersectionNode(ListNode headA,ListNode headB){
+
+    }
 }
