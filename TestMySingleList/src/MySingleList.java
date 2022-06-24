@@ -379,8 +379,8 @@ public class MySingleList {
 
     /**
      * 将两个有序链表进行合并
-     * @param list1
-     * @param list2
+     * @param head1
+     * @param head2
      * @return
      */
     public ListNode mergeTwoLists(ListNode head1, ListNode head2){
