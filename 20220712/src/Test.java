@@ -19,6 +19,26 @@ class A<T> {
 
 public class Test{
     public static void main(String[] args) {
+        int num=38;
+        while(num>9){
+            int sum=0;
+            int n=num;
+            while(n>0){
+                int tmp=n%10;
+                n/=10;
+                sum+=tmp;
+            }
+            num=sum;
+        }
+        System.out.println(num);
+    }
+
+/*    public static int x;
+    public static void main(String[] args) {
+        System.out.println(x);
+    }*/
+
+    public static void main1(String[] args) {
         A<Integer> a=new A<>(12);
         System.out.println(a.get());
     }
