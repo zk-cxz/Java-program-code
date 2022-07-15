@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -19,6 +22,8 @@ class A<T> {
 
 public class Test{
     public static void main(String[] args) {
+/*        Set<Integer> set=new HashSet<>();
+        set.add(1);*/
         int num=38;
         while(num>9){
             int sum=0;
