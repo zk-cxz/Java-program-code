@@ -41,5 +41,10 @@ public class Demo4 {
         }
         System.out.println("控制新线程退出");
         thread.interrupt();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
