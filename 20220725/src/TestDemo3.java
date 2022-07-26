@@ -2,23 +2,29 @@
  * Created with IntelliJ IDEA.
  * Description:
  * User: a
- * Date: 2022-07-25
- * Time: 17:39
+ * Date: 2022-07-26
+ * Time: 20:25
  */
-public class TestDemo {
-    static class Counter{
+public class TestDemo3 {
+    static class Counter1{
         public int count;
 
-        public void crease(){
-            synchronized (Counter.class){
-                count++;
-            }
+        synchronized public void crease(){
+            count++;
+        }
+    }
+
+    static class Counter2{
+        public int count;
+
+        synchronized public void crease(){
+            count++;
         }
     }
 
     public static void main(String[] args) {
-        Counter counter1=new Counter();
-        Counter counter2=new Counter();
+        Counter1 counter1=new Counter1();
+        Counter2 counter2=new Counter2();
 
         Thread thread1=new Thread(() -> {
             for(int i=0;i<10000;i++){
