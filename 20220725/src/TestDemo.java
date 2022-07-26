@@ -6,29 +6,33 @@
  * Time: 17:39
  */
 public class TestDemo {
+    public static int a=0;
+
     static class Counter{
         public int count;
 
-        public void crease(){
-            synchronized (Counter.class){
-                count++;
-            }
+        synchronized public void create2(){
+            count++;
+        }
+
+        synchronized public void crease1(){
+            count++;
+            //a++;
         }
     }
 
     public static void main(String[] args) {
-        Counter counter1=new Counter();
-        Counter counter2=new Counter();
+        Counter counter=new Counter();
 
         Thread thread1=new Thread(() -> {
             for(int i=0;i<10000;i++){
-                counter1.crease();
+                counter.crease1();
             }
         });
 
         Thread thread2=new Thread(() -> {
             for(int i=0;i<10000;i++){
-                counter2.crease();
+                counter.create2();
             }
         });
 
@@ -42,6 +46,6 @@ public class TestDemo {
             e.printStackTrace();
         }
 
-        System.out.println("count="+(counter1.count + counter2.count));
+        System.out.println("count="+counter.count);
     }
 }
