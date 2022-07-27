@@ -7,7 +7,7 @@
  */
 public class Demo6 {
     // 计数器
-    private static volatile int COUNTER = 0;
+    volatile private static int COUNTER = 0;
     // 定义一个单独的锁对象
     private static Object lock = new Object();
 
