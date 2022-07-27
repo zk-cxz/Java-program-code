@@ -9,13 +9,13 @@ public class Demo1 {
     public static void main(String[] args) {
         Object object=new Object();
         synchronized (object){
-            System.out.println("wait 之前");
             try {
+                System.out.println("wait 之前");
                 object.wait();
+                System.out.println("wait 之后");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("wait 之后");
         }
     }
 }
