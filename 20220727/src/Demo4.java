@@ -6,12 +6,21 @@
  * Time: 17:37
  */
 public class Demo4 {
+    public static Thread a=null;
+    public static Thread b=null;
+    public static Thread c=null;
+
     public static void main(String[] args) {
-        Thread c=new Thread(() -> {
-            System.out.println("c");
+        a=new Thread(() -> {
+            try {
+                b.join();
+                System.out.println("a");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         });
 
-        Thread b=new Thread(() -> {
+        b=new Thread(() -> {
             try {
                 c.join();
                 System.out.println("b");
@@ -20,13 +29,8 @@ public class Demo4 {
             }
         });
 
-        Thread a=new Thread(() -> {
-            try {
-                b.join();
-                System.out.println("a");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        c=new Thread(() -> {
+            System.out.println("c");
         });
 
         a.start();
