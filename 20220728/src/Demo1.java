@@ -10,13 +10,14 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class Demo1 {
     public static void main(String[] args) {
-        BlockingQueue<Integer> queue=new LinkedBlockingDeque<>();
+        BlockingQueue<Integer> queue=new LinkedBlockingDeque<>(100);
 
         Thread customer=new Thread(() -> {
             while(true){
                 try {
                     int value=queue.take();
                     System.out.println("消费元素:"+value);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -31,7 +32,7 @@ public class Demo1 {
                     System.out.println("生产元素:"+n);
                     queue.put(n);
                     n++;
-                    Thread.sleep(1000);
+                    //Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
