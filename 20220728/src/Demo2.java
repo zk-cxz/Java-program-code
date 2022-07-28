@@ -7,7 +7,7 @@
  */
 
 /**
- * 基于数组模拟实现阻塞队列
+ * 基于数组模拟实现阻塞队列(使用的是循环队列)
  * 提供两个核心方法:
  * 1. put 入队列
  * 2. take 出队列
@@ -29,6 +29,7 @@ class MyBlockingQueue{
     public void put(int value) throws InterruptedException {
         synchronized (this){
             while(size==items.length){
+                //队列满, 阻塞等待
                 this.wait();
             }
             items[tail]=value;
@@ -46,6 +47,7 @@ class MyBlockingQueue{
         int ret=0;
         synchronized (this){
             while(size==0){
+                //队列空, 阻塞等待
                 this.wait();
             }
             ret=items[head];
