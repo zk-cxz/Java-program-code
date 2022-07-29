@@ -34,6 +34,8 @@ class MyTask{
 }
 
 class MyTimer{
+    public Object locker=new Object();
+
     PriorityBlockingQueue<MyTask> queue=new PriorityBlockingQueue<>(100,new Comparator<MyTask>() {
         @Override
         public int compare(MyTask o1, MyTask o2) {
@@ -43,19 +45,27 @@ class MyTimer{
 
     public void schedule(Runnable task,long delay){
         MyTask myTask=new MyTask(task,delay);
-        queue.put(myTask);
+        synchronized (locker){
+            queue.put(myTask);
+            locker.notify();
+        }
     }
 
     public MyTimer(){
         Thread thread=new Thread(() -> {
             while(true){
                 try {
-                    MyTask myTask=queue.take();
-                    long curTime=System.currentTimeMillis();
-                    if(myTask.getTime()>curTime){
-                        queue.put(myTask);
-                    }else{
-                        myTask.run();
+                    synchronized (locker){
+                        if(queue.isEmpty()){
+                            locker.wait();
+                        }
+                        MyTask myTask=queue.take();
+                        long curTime=System.currentTimeMillis();
+                        if(myTask.getTime()>curTime){
+                            queue.put(myTask);
+                        }else{
+                            myTask.run();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
