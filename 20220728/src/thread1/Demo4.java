@@ -1,3 +1,5 @@
+package thread1;
+
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
@@ -53,7 +55,9 @@ class MyTimer{
             while(true){
                 try {
                     synchronized (locker){
-                        if(!queue.isEmpty()){
+                        if(queue.isEmpty()){
+                            locker.wait();
+                        }else{
                             MyTask myTask=queue.take();
                             long curTime=System.currentTimeMillis();
                             if(myTask.getTime()>curTime){

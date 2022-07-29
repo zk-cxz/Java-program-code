@@ -1,4 +1,4 @@
-/**
+package thread1; /**
  * Created with IntelliJ IDEA.
  * Description:
  * User: a

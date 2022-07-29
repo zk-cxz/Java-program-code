@@ -1,3 +1,5 @@
+package thread1;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
