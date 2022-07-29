@@ -70,7 +70,7 @@ public class Demo2 {
                 try {
                     int value=myBlockingQueue.take();
                     System.out.println("消费:"+value);
-                    Thread.sleep(1000);
+                    //Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
