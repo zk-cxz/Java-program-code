@@ -1,11 +1,11 @@
-package thread2;
+package thread3;
 
 /**
  * Created with IntelliJ IDEA.
  * Description:
  * User: a
  * Date: 2022-07-29
- * Time: 19:59
+ * Time: 20:37
  */
 
 import java.util.Comparator;
@@ -16,7 +16,6 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 class MyTask{
     private Runnable task;
-
     private long time;
 
     public MyTask(Runnable task,long delay){
