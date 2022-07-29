@@ -7,6 +7,10 @@ import java.util.concurrent.PriorityBlockingQueue;
  * Date: 2022-07-29
  * Time: 9:32
  */
+
+/**
+ * 模拟实现定时器
+ */
 class MyTask implements Comparable<MyTask>{
     private Runnable task;
 
@@ -32,23 +36,33 @@ class MyTask implements Comparable<MyTask>{
 }
 
 class MyTimer{
+    private Object locker=new Object();
+
     PriorityBlockingQueue<MyTask> queue=new PriorityBlockingQueue<>();
 
     public void schedule(Runnable task,long delay){
         MyTask myTask=new MyTask(task,delay);
-        queue.put(myTask);
+        synchronized (locker){
+            queue.put(myTask);
+            locker.notify();
+        }
     }
 
     public MyTimer(){
         Thread thread=new Thread(() -> {
             while(true){
                 try {
-                    MyTask myTask=queue.take();
-                    long curTime=System.currentTimeMillis();
-                    if(myTask.getTime()>curTime){
-                        queue.put(myTask);
-                    }else{
-                        myTask.run();
+                    synchronized (locker){
+                        if(!queue.isEmpty()){
+                            MyTask myTask=queue.take();
+                            long curTime=System.currentTimeMillis();
+                            if(myTask.getTime()>curTime){
+                                queue.put(myTask);
+                                locker.wait(myTask.getTime()-curTime);
+                            }else{
+                                myTask.run();
+                            }
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -67,7 +81,7 @@ public class Demo4 {
             public void run() {
                 System.out.println("111");
             }
-        },3000);
+        },1000);
         myTimer.schedule(new Runnable() {
             @Override
             public void run() {
@@ -79,6 +93,6 @@ public class Demo4 {
             public void run() {
                 System.out.println("333");
             }
-        },1000);
+        },3000);
     }
 }
