@@ -12,7 +12,7 @@ public class Demo3 {
         ExecutorService threadPool=new ThreadPoolExecutor(5,10,5,
                 TimeUnit.SECONDS,new LinkedBlockingQueue<>(100),new ThreadPoolExecutor.DiscardPolicy());
 
-        for(int i=0;i<100;i++){
+        for(int i=0;i<20;i++){
             Thread thread=new Thread(() -> {
                 System.out.println(Thread.currentThread().getName());
             },"thread"+(i+1));
