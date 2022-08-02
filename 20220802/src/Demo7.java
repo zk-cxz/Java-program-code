@@ -17,7 +17,7 @@ public class Demo7 {
             //此处的PrintWriter用法和System.out是一样的
             PrintWriter printWriter=new PrintWriter(outputStream);
             printWriter.print("hello");
-            printWriter.close();
+            printWriter.flush();
         }catch (IOException e){
             e.printStackTrace();
         }
