@@ -10,6 +10,7 @@ import java.io.InputStream;
  * Time: 23:09
  */
 public class Demo1 {
+    //使用字节流读文件
     public static void main(String[] args) {
         InputStream inputStream=null;
         try{
