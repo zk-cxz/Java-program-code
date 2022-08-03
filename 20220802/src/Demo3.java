@@ -12,11 +12,13 @@ import java.util.Scanner;
  */
 public class Demo3 {
     //对于文本读操作,最简单的写法:
-    public static void main(String[] args) throws IOException {
-        InputStream inputStream=new FileInputStream("test.txt");
-        Scanner scanner=new Scanner(inputStream);
-        String str=scanner.next();
-        System.out.println(str);
-        inputStream.close();
+    public static void main(String[] args){
+        try(InputStream inputStream=new FileInputStream("test.txt")){
+            Scanner scanner=new Scanner(inputStream);
+            String str=scanner.next();
+            System.out.println(str);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
