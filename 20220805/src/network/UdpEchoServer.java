@@ -35,13 +35,13 @@ public class UdpEchoServer {
             DatagramPacket responsePacket=new DatagramPacket(response.getBytes(),response.getBytes().length,
                     requestPacket.getSocketAddress());
             //5.将DatagramPacket对象对象返回给客户端
-            socket.send(requestPacket);
+            socket.send(responsePacket);
             System.out.printf("[%s:%d] request=%s; response=%s\n",requestPacket.getAddress().toString(),
                     requestPacket.getPort(),request,response);
         }
     }
 
-    private String process(String request) {
+    public String process(String request) {
         return request;
     }
 
