@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,18 +26,33 @@ public class TCPEchoServer {
 
     public void start() throws IOException {
         System.out.println("服务器启动!");
+        ExecutorService service=Executors.newCachedThreadPool();
         while(true){
             //如果没有客户端建立连接,会阻塞等待
             Socket clientSocket= serverSocket.accept();
+
             //这里应该创建一个新的线程,让多个客户端能够执行并发
-            Thread thread=new Thread(() -> {
+            //但是这样会频繁创建销毁线程,有待改进
+            /*Thread thread=new Thread(() -> {
                 try {
                     processConnect(clientSocket);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            thread.start();
+            thread.start();*/
+
+            //使用线程池,解决频繁创建销毁线程的问题
+            service.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        processConnect(clientSocket);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
     }
 
