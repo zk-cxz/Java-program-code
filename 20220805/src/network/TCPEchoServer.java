@@ -27,13 +27,22 @@ public class TCPEchoServer {
         while(true){
             //如果没有客户端建立连接,会阻塞等待
             Socket clientSocket= serverSocket.accept();
-            processConnect(clientSocket);
+            //这里应该创建一个新的线程,让多个客户端能够执行并发
+            Thread thread=new Thread(() -> {
+                try {
+                    processConnect(clientSocket);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            thread.start();
         }
     }
 
     //一个连接过来,服务方式可能有两种:
-    //短连接:
-    //长连接:  这里使用长连接
+    //短连接: 一个连接只进行一个数据交互(一个请求+一个响应)
+    //长连接: 一个连接进行多次数据交互(N个请求+N个响应)
+    //本代码使用长连接
     public void processConnect(Socket clientSocket) throws IOException {
         System.out.printf("[%s:%d] 客户端建立连接!\n",clientSocket.getInetAddress().toString(),clientSocket.getPort());
 
@@ -53,13 +62,16 @@ public class TCPEchoServer {
                 //2.根据请求计算响应
                 String response=process(request);
                 //3.将响应返回给客户端
-                printWriter.write(response);
+                printWriter.println(response);
                 //4.刷新缓冲区
                 printWriter.flush();
 
                 System.out.printf("[%s:%d] request=%s; response=%s\n",clientSocket.getInetAddress().toString(),
                         clientSocket.getPort(),request,response);
             }
+        }finally {
+            //这里注意将客户端连接关闭,避免资源泄露
+            clientSocket.close();
         }
     }
 
