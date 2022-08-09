@@ -13,7 +13,7 @@ public class B {
         for(int i = 0; i < 10; i++){
             numbers[i] = 2021;
         }
-        int number = 0;
+        int number = 1;
         boolean flag = true;
         while(flag){
             //将整数先转字符串后再转字符数组
